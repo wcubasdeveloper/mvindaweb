@@ -1,0 +1,115 @@
+
+
+    <!-- Footer Area Start --> 
+    <div class="footer-area">
+        <div class="footer-container">
+            <div class="footer-top">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 col-lg-12 mb-md-30px mb-lm-30px" >
+                            <div class="footer-logo">
+                                <a href="#index.html"><img class="img-responsive" src="<?=base_url()?>assets/images/logo_blanco.png" alt="logo.jpg" /></a>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-8 mb-md-30px mb-lm-30px">
+                            <div class="single-wedge">
+                                
+                                <p class="text-infor"></p>
+                                <div class="need_help" style="color:white">
+                                    <p style="color: white;" ><span style="color: white;" class="lnr lnr-map-marker"></span>&nbsp;&nbsp; Av. Inca Garcilaso de la Vega 1261, Cercado de Lima 15001</p>
+                                    <p style="color: white;" ><span style="color: white;" class="lnr lnr-apartment"></span>&nbsp;&nbsp; Galeria Garcilazo de la Vega</p>
+                                    <p style="color: white;" ><span style="color: white;" class="lnr lnr-cart"></span>&nbsp;&nbsp; Venta online todo el día</p>
+                                    <p style="color: white;" ><span style="color: white;" class="lnr lnr-envelope"></span>&nbsp;&nbsp; infomvinda@mvinda.com.pe</p>
+                                    <p style="color: white;" ><span style="color: white;" class="lnr lnr-phone-handset"></span>&nbsp;&nbsp; 955102830</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 col-sm-6 mb-md-30px mb-lm-30px">
+                            <div class="single-wedge">
+                                <h4 class="footer-herading">Información</h4>
+                                <div class="footer-links">
+                                    <ul >
+                                        <li><a style="color:white"  href="##">Delivery y política de envio</a></li>
+                                        <li><a style="color:white"  href="#about.html">Nuestra empresa</a></li>
+                                        <li><a style="color:white"  href="##">Contáctanos</a></li>
+                                        <li><a style="color:white"  href="##">Terminos y condiciones</a></li>
+                                        <li><a style="color:white"  href="##">Libro de reclamaciones</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    
+                    
+                    </div>
+                </div>
+            </div>
+            <div class="footer-center">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4" >
+                            <div class="title-newsletter">
+                                <h3 style="font-size: 24px; color: #fff; font-weight: 500; line-height: 24px; margin: 0 0 10px;color:white" >Anuncios y promociones</h3>
+                                <p class="des">Si deseas que te enviemos las mejores ofertas!</p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-8" >
+                            <div id="mc_embed_signup" class="subscribe-form">
+                                <form style="height: 47px; background: #fff; border: 0; color: #b1b1b1; padding: 15px 120px 0px 20px; display: inline-block; width: 100%; font-size: 14px; border: none; border-radius: 5px;" id="mc-embedded-subscribe-form" class="validate" novalidate="" target="_blank" name="mc-embedded-subscribe-form" method="post" action="http://devitems.us11.list-manage.com/subscribe/post?u=6bbb9b6f5827bd842d9640c82&amp;id=05d85f18ef">
+                                    <div id="mc_embed_signup_scroll" class="mc-form">
+                                        <input class="email" type="email" required="" placeholder="Ingresa tu correo" name="EMAIL" value="">
+                                        <div class="mc-news" aria-hidden="true">
+                                            <input type="text" value="" tabindex="-1" name="b_6bbb9b6f5827bd842d9640c82_05d85f18ef">
+                                        </div>
+                                        <div class="clear">
+                                            <input id="mc-embedded-subscribe" style="position: absolute; top: 0; right: 15px; text-transform: capitalize; font-weight: 700; font-size: 14px; color: #ffffff; background: #215adad6; box-shadow: none; padding: 0 20px; line-height: 47px; height: 47px; border-radius: 0 5px 5px 0; transition: all 300ms linear;" class="button" type="submit" name="subscribe" value="Suscribirse">
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="footer-tags">
+                <div class="container">
+                    <div class="row"> 
+                    
+                        <div class="col-md-12 text-center">
+                            <p class="copy-text" style="color:white" >Copyright ©  MVINDA S.A.C. todos los derechos reservados</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer Area End -->
+
+<!-- Modal end -->
+        <!-- JS
+============================================ -->
+
+        <!-- Vendors JS -->
+        <!-- <script src="<?=base_url()?>assets/abelostyle/assets/js/vendor/jquery-3.5.1.min.js"></script> -->
+        <script src="<?=base_url()?>assets/abelostyle/assets/js/vendor/bootstrap.bundle.min.js"></script>
+        <script src="<?=base_url()?>assets/abelostyle/assets/js/vendor/jquery-migrate-3.1.0.min.js"></script>
+        <script src="<?=base_url()?>assets/abelostyle/assets/js/vendor/modernizr-3.6.0.min.js"></script>
+
+        <!-- Plugins JS -->
+        <script src="<?=base_url()?>assets/abelostyle/assets/js/plugins/jquery-ui.min.js"></script>
+        <script src="<?=base_url()?>assets/abelostyle/assets/js/plugins/slick.js"></script>
+        <script src="<?=base_url()?>assets/abelostyle/assets/js/plugins/countdown.js"></script>
+        <script src="<?=base_url()?>assets/abelostyle/assets/js/plugins/scrollup.js"></script>
+        <script src="<?=base_url()?>assets/abelostyle/assets/js/plugins/elevateZoom.js"></script>
+        <script src="<?=base_url()?>assets/abelostyle/assets/js/plugins/lodash/lodash.min.js"></script>
+
+        <!-- Use the minified version files listed below for better performance and remove the files listed above -->
+        <!-- <script src="assets/js/vendor/vendor.min.js"></script>
+        <script src="assets/js/plugins/plugins.min.js"></script> -->
+
+        <!-- Main Activation JS -->
+        <script src="<?=base_url()?>assets/abelostyle/assets/js/main.js"></script>
+    </body>
+</html>
