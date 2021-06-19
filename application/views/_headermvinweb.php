@@ -72,6 +72,21 @@
                     </div>
                 </div>
             </div>
+            <style>
+            #categoriaslink {
+                height: 300px; /*your fixed height*/
+                -webkit-column-count: 4;
+                -moz-column-count: 4;
+                column-count: 4; /*3 in those rules is just placeholder -- can be anything*/
+            }
+
+            #categoriaslink .a {
+                list-style-type: cambodian !important;
+            }
+            #categoriaslink li {
+                /* display: inline-block;  */
+            }
+            </style>
             <!-- Header Nav End -->
             <div class="header-menu header-menu-2 bg-blue sticky-nav d-lg-block d-none padding-0px">
                 <div class="container">
@@ -79,7 +94,7 @@
                         <div class="col-lg-3">
                             <div class="header-menu-vertical">
                                 <h4 class="menu-title">Buscar categorias</h4>
-                                <ul class="menu-content display-none" id="categoriaslink" style="height: 500px; overflow: auto;" >
+                                <ul class="menu-content display-none" id="categoriaslink" style="height: auto; overflow: auto;min-width: 900px;" >
                                     <li class="menu-item"><a href="##">Televisions</a></li>
                                     <li class="menu-item">
                                         <a href="##">Electronics <i class="ion-ios-arrow-right"></i></a>
@@ -635,10 +650,13 @@
     var terminoBusqueda = '<?=$termbusqueda?>';
     var COSTO_DOLAR_HOY = 3.840;
     var URL_BASE = '<?=base_url()?>';
+
+    console.log("URL_BASE->", URL_BASE);
     $(document).ready(function () {
         console.log("<-------------- document ------------->");
         // getCategorias();
         // activarbusquedamovil();
+        getCategorias();
         activarBusqueda();
         activarbusquedamovil();
         // $('#cantidadProductos').css("content","7");
@@ -991,6 +1009,42 @@
         var urlredirect = URL_BASE + '/Web/ResumenPedido';
         window.location.replace(urlredirect);
     }
+
+
+    function getCategorias(){
+        //
+        // $('#selectCategorias').empty();
+        // $('#selectCategoriaMovil').empty();
+        $('#categoriaMovil').empty();
+        $('#categoriaslink').empty();
+        //
+        var URL_GET_CATEGORIA = "<?php echo base_url()."XbestServicio/getCategorias" ?>";
+        var data = { };
+        //
+        var strHTMLoption = "";
+        var strHTMLcategoriaMenu = "";
+        var strHTMLcategoriaLink = "";
+        //
+        $.post(URL_GET_CATEGORIA, data, function (rpta) {
+            //var respuestaJSON = JSON.parse(rpta);
+            console.log("categorias-->",rpta );
+            console.log("url CATEGORIAS->>", URL_BASE);
+            $.each(rpta,function(){
+                // strHTMLoption += '<option value="'+this.CodCategoriaProducto+'">'+ this.NomCategoriaProducto +'</option>';
+                strHTMLcategoriaMenu += '<li><a href="'+ '<?php base_url()?>' + 'Web/ProductosByCategoria?c=' + this.CodCategoriaProducto +'">' +  '>'+ this.NomCategoriaProducto +'</a></li>';
+                strHTMLcategoriaLink += '<li class="menu-item"><a href="'+ URL_BASE + '/Web/ProductosByCategoria?c=' + this.CodCategoriaProducto + '|' + this.NomCategoriaProducto +'">'+ '<span class="lnr lnr-chevron-right-circle"></span> ' +this.NomCategoriaProducto +'</a></li>';
+            });
+            // strHTMLoption += '<option value="0" selected >Todo</option>';
+            // $('#selectCategorias').append(strHTMLoption);
+            // $('#selectCategoriaMovil').append(strHTMLoption);
+            $('#categoriaMovil').html(strHTMLcategoriaMenu);
+            $('#categoriaslink').html(strHTMLcategoriaLink);
+            //
+            //activarBusqueda();
+            // $(".se-pre-con").fadeOut("slow");
+        },'JSON')
+    }
+
     //limpiarDataLocalStorage();
     listarProductoEnCarrito();
 </script>

@@ -292,14 +292,9 @@
 <script>
     var URL_BASE = '<?=base_url()?>';
     $(document).ready(function () {
-      
-        getCategorias();
-        // activarbusquedamovil();
         getProductosNuevos();
-        //getProductosGeneral();
     });
-
-
+    //
     var ITEMPRODUCTO = {
         idproducto : 0,
         nomProducto : '',
@@ -698,38 +693,7 @@
         },'JSON');
     }
 
-    function getCategorias(){
-        //
-        // $('#selectCategorias').empty();
-        // $('#selectCategoriaMovil').empty();
-        $('#categoriaMovil').empty();
-        $('#categoriaslink').empty();
-        //
-        var URL_GET_CATEGORIA = "<?php echo base_url()."XbestServicio/getCategorias" ?>";
-        var data = { };
-        //
-        var strHTMLoption = "";
-        var strHTMLcategoriaMenu = "";
-        var strHTMLcategoriaLink = "";
-        //
-        $.post(URL_GET_CATEGORIA, data, function (rpta) {
-            //var respuestaJSON = JSON.parse(rpta);
-            //console.log("respuestaJSON",respuestaJSON );
-            $.each(rpta,function(){
-                // strHTMLoption += '<option value="'+this.CodCategoriaProducto+'">'+ this.NomCategoriaProducto +'</option>';
-                strHTMLcategoriaMenu += '<li><a href="##">'+ this.NomCategoriaProducto +'</a></li>';
-                strHTMLcategoriaLink += '<li class="menu-item"><a href="##">'+ this.NomCategoriaProducto +'</a></li>';
-            });
-            // strHTMLoption += '<option value="0" selected >Todo</option>';
-            // $('#selectCategorias').append(strHTMLoption);
-            // $('#selectCategoriaMovil').append(strHTMLoption);
-            $('#categoriaMovil').html(strHTMLcategoriaMenu);
-            $('#categoriaslink').html(strHTMLcategoriaLink);
-            //
-            //activarBusqueda();
-            // $(".se-pre-con").fadeOut("slow");
-        },'JSON')
-    }
+
 
     function getProductosMasVendidos(){
         //

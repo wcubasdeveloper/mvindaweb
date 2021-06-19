@@ -6037,6 +6037,24 @@ offcanvas-menu > ul > li .menu-expand {
   background-color: #1d1d1d;
 }
 
+.your-order-area .Place-order button {
+  background-color: #266cfb;
+  color: #fff;
+  display: block;
+  font-weight: 700;
+  letter-spacing: 1px;
+  line-height: 1;
+  padding: 18px 20px;
+  text-align: center;
+  text-transform: uppercase;
+  border-radius: 5px;
+  z-index: 9;
+}
+.your-order-area .Place-order button:hover {
+  background-color: #1d1d1d;
+}
+
+
 .open-toggle, .open-toggle2 {
   display: none;
 }

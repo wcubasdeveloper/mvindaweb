@@ -49,14 +49,46 @@ class Web extends CI_Controller {
     // $datos["imgslider"] = $getImagenSlider;
     //
     $datos["termbusqueda"] = $terminobusqueda;
-
     $this->load->view('/_layoumvindaweb');
     $this->load->view('/_headermvinweb', $datos);
     // $this->load->view('Web/Inicio', $datos);
     $this->load->view('Web/BusquedaProducto');
     $this->load->view('/_footermvindaweb');
-
   }
+
+  public function ProductosByCategoria(){
+    $serializadocategoria =  $_GET["c"];
+    $porcionesdata = explode("|", $serializadocategoria);
+
+    $codcategoriaproducto = $porcionesdata[0];
+    $nombrecategoria  = $porcionesdata[1];
+    $terminobusqueda =  '';
+    //
+    $datos["termbusqueda"] = '';
+    $datos["codcategoria"] = $codcategoriaproducto;
+    $datos["nomcategoria"] = $nombrecategoria;
+
+    $this->load->view('/_layoumvindaweb');
+    $this->load->view('/_headermvinweb', $datos);
+    // $this->load->view('Web/Inicio', $datos);
+    $this->load->view('Web/ProductosByCategoria',$datos);
+    $this->load->view('/_footermvindaweb');
+  }
+
+  public function TerminarPedido(){
+    // $codcategoriaproducto =  $_GET["c"];
+
+    $terminobusqueda =  '';
+    //
+    $datos["termbusqueda"] = '';
+
+    $this->load->view('/_layoumvindaweb');
+    $this->load->view('/_headermvinweb', $datos);
+    // $this->load->view('Web/Inicio', $datos);
+    $this->load->view('Web/TerminarPedido');
+    $this->load->view('/_footermvindaweb');
+  }
+
 
   public function DetalleProducto(){
     $codigoproducto =  $_GET["codigoProducto"];
