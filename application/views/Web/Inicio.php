@@ -1,6 +1,4 @@
-
-
-    <div class="offcanvas-overlay"></div>
+<div class="offcanvas-overlay"></div>
 
    <!-- Slider Start -->
    <div class="slider-area slider-dots-style-3">

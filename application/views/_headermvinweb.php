@@ -1,4 +1,4 @@
-    <style>
+<style>
         .item-suggestions :hover{
             background-color: #9e9e9e3d;
         }
@@ -653,14 +653,10 @@
 
     console.log("URL_BASE->", URL_BASE);
     $(document).ready(function () {
-        console.log("<-------------- document ------------->");
-        // getCategorias();
-        // activarbusquedamovil();
         getCategorias();
         activarBusqueda();
         activarbusquedamovil();
-        // $('#cantidadProductos').css("content","7");
-        // $('#cantidadProductos').attr('content','7');
+
     });
 
     $(document).click(function(event) {
@@ -954,8 +950,8 @@
 
 
     function listarProductoEnCarrito(){
-      
         var productosCarrito = JSON.parse(getLocalDataCarrito()); //  JSON.parse(getLocalDataCarrito());
+        console.log("productosCarrito", productosCarrito );
         var cantidadProducto = 0;
         $('#cantidadProductos').text('0');
         // console.log("productosCarrito", productosCarrito);
@@ -1000,9 +996,13 @@
         $('#lbltotalcarritocompra').text('S/. '+ subtotal);
         $('#lblmsjAlerta').text('Hay ' + cantidadProducto + ' producto' + (cantidadProducto>1 ? 's' : ''  ) + ' en su carrito');
         //
-        if(productosCarrito.length > 0){
-            $('#btnTramitarPedido').removeAttr('disabled');
+        if(productosCarrito){
+           if(productosCarrito.length > 0){
+           	$('#btnTramitarPedido').removeAttr('disabled');
+        	}
         }
+        
+
     }
 
     function tramitarPedido(){
@@ -1024,6 +1024,8 @@
         var strHTMLoption = "";
         var strHTMLcategoriaMenu = "";
         var strHTMLcategoriaLink = "";
+        //
+        console.log('URL_GET_CATEGORIA->', URL_GET_CATEGORIA);
         //
         $.post(URL_GET_CATEGORIA, data, function (rpta) {
             //var respuestaJSON = JSON.parse(rpta);

@@ -108,7 +108,8 @@ class  XbestServicio extends CI_Controller {
         exit();
 
         $curl = curl_init();
-        curl_setopt($curl, CURLOPT_URL,"http://abexacloud.com/ApiXbest/api/GetCategorias?parametro=1");
+        curl_setopt($curl, CURLOPT_URL,"http://abexacloud.com/ApiXbest/api/
+        ?parametro=1");
         curl_setopt($curl, CURLOPT_POST, 1);
         curl_setopt($curl, CURLOPT_USERPWD, "ABEXA" . ":" . "4B3XA2021");
         curl_setopt($curl, CURLOPT_POSTFIELDS, json_encode(array()));
@@ -124,7 +125,8 @@ class  XbestServicio extends CI_Controller {
     }
 
     public function getCategorias(){
-
+    
+  
         $host = "http://abexacloud.com/ApiXbest/api/GetCategorias";
         $user_name = 'ABEXA';
         $password = '4B3XA2021';
