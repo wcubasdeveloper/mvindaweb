@@ -251,7 +251,7 @@
                                                         <div class="social_action">
                                                             <div id="btncompartirfacebook" class="fb-share-button" 
                                                             data-size="large" 
-                                                            data-href="" 
+                                                            data-href="http://www.mvinda.com/Web/DetalleProducto/?codigoProducto=130" 
                                                             data-type="button"></div>
                                                         </div>
                                                     </li>
@@ -355,15 +355,13 @@
         }
         //
         var urlproductodetalle = URL_BASE + 'Web/DetalleProducto/?codigoProducto=' +codigoprod;
-        console.log('urlproductodetalle->',urlproductodetalle);
+        // console.log('urlproductodetalle->',urlproductodetalle);
         $('#lblNombreproductomodal').html(nombre);
         $('#lbldescripcionmodal').text(caracteristicas);
         $('#imgProductoselectModal').attr('src',urlprod);
         $('#btncompartirfacebook').attr('data-href',urlproductodetalle)
         $('#btncompartirfacebook').attr('href',urlproductodetalle)
-
-
-
+        //
         ITEMPRODUCTO.idproducto = Number(codigoprod);
         ITEMPRODUCTO.nomProducto = nombre;
         ITEMPRODUCTO.marca = marcaprod;
