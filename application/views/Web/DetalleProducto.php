@@ -1,4 +1,4 @@
-        <img src="http://www.abexacloud.com/XBest/Adjunto/imagenproducto/20602732402/imgproducto_2622.jpg" />
+        
 
 
         <!-- News letter area  End -->
