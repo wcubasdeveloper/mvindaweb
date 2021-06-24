@@ -11,42 +11,15 @@
                     <div class="row">
                         <div class="col-xl-6 col-lg-6 col-md-12">
                             <div class="product-details-img product-details-tab product-details-tab-2">
-                                <!-- <div id="gallery" class="product-dec-slider-3 mr-20px">
-                                    
-                                    <div class="single-slide-item">
-                                        <img class="img-responsive imagenproductopequenio" data-image="<?=base_url()?>/assets/abelostyle/assets/images/product-image/6.jpg" data-zoom-image="<?=base_url()?>/assets/abelostyle/assets/images/product-image/zoom/1.jpg" src="<?=base_url()?>/assets/abelostyle/assets/images/product-image/6.jpg"  alt="" />
-                                    </div>
-                                    <div class="single-slide-item">
-                                            <img class="img-responsive imagenproductopequenio" data-image="<?=base_url()?>/assets/abelostyle/assets/images/product-image/9.jpg" data-zoom-image="<?=base_url()?>/assets/abelostyle/assets/images/product-image/zoom/3.jpg"  src="<?=base_url()?>/assets/abelostyle/assets/images/product-image/9.jpg" alt="" />
-                                    </div>
-                                    <div class="single-slide-item">
-                                            <img class="img-responsive imagenproductopequenio" data-image="<?=base_url()?>/assets/abelostyle/assets/images/product-image/15.jpg" data-zoom-image="<?=base_url()?>/assets/abelostyle/assets/images/product-image/zoom/4.jpg" src="<?=base_url()?>/assets/abelostyle/assets/images/product-image/15.jpg" alt="" />
-                                    </div>
-                                    <div class="single-slide-item">
-                                            <img class="img-responsive imagenproductopequenio" data-image="<?=base_url()?>/assets/abelostyle/assets/images/product-image/7.jpg" data-zoom-image="<?=base_url()?>/assets/abelostyle/assets/images/product-image/zoom/2.jpg" src="<?=base_url()?>/assets/abelostyle/assets/images/product-image/7.jpg" alt="" />
-                                    </div>
-
-                                </div> -->
+                                
                                 <div class="zoompro-wrap-2 zoompro-2">
                                     <div id="sectionfotoproducto" class="zoom">
-                                        <!-- <img class="zoompro imagenproducto" src="<?=base_url()?>/assets/abelostyle/assets/images/product-image/8.jpg" data-zoom-image="<?=base_url()?>/assets/abelostyle/assets/images/product-image/zoom/5.jpg" alt="" /> -->
-                                        <!-- <img id="fotoproducto" class=""  src="http://www.abexacloud.com/XBest/Adjunto/imagenproducto/20602732402/imgproducto_186.png"   /> -->
                                         <center>
-                                            <a href="http://www.abexacloud.com/XBest/Adjunto/imagenproducto/20602732402/imgproducto_2622.jpg" class="zoom"><img src="http://www.abexacloud.com/XBest/Adjunto/imagenproducto/20602732402/imgproducto_2622.jpg" /></a>
+                                            <a href="http://www.abexacloud.com/XBest/Adjunto/imagenproducto/20602732402/imgproducto_2622.jpg" class="zoom">
+                                            <img src="http://www.abexacloud.com/XBest/Adjunto/imagenproducto/20602732402/imgproducto_2622.jpg" /></a>
                                         </center>
                                     </div>
-                                    <!-- <div class="zoompro-border zoompro-span">
-                                        <img class="zoompro imagenproducto" src="<?=base_url()?>/assets/abelostyle/assets/images/product-image/6.jpg" data-zoom-image="<?=base_url()?>/assets/abelostyle/assets/images/product-image/zoom/1.jpg" alt="" />
-                                    </div>
-                                    <div class="zoompro-border zoompro-span">
-                                        <img class="zoompro imagenproducto" src="<?=base_url()?>/assets/abelostyle/assets/images/product-image/9.jpg" data-zoom-image="<?=base_url()?>/assets/abelostyle/assets/images/product-image/zoom/3.jpg" alt="" />
-                                    </div>
-                                    <div class="zoompro-border zoompro-span">
-                                        <img class="zoompro imagenproducto" src="<?=base_url()?>/assets/abelostyle/assets/images/product-image/15.jpg" data-zoom-image="<?=base_url()?>/assets/abelostyle/assets/images/product-image/zoom/4.jpg" alt="" />
-                                    </div>
-                                    <div class="zoompro-border zoompro-span">
-                                        <img class="zoompro imagenproducto" src="<?=base_url()?>/assets/abelostyle/assets/images/product-image/7.jpg" data-zoom-image="<?=base_url()?>/assets/abelostyle/assets/images/product-image/zoom/2.jpg" alt="" />
-                                    </div> -->
+                                  
                                 </div>
                             </div>
                         </div>
