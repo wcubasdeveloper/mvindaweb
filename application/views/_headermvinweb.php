@@ -231,10 +231,8 @@
                                             <li class="w-100">
                                                 <ul class="banner-megamenu-wrapper d-flex">
                                                     <li class="banner-wrapper mr-30px">
-                                                        <!-- <a href="##"><img src="<?=base_url()?>assets/abelostyle/assets/images/menu-image/banner-menu2.jpg" alt="" /></a> -->
                                                     </li>
                                                     <li class="banner-wrapper">
-                                                        <!-- <a href="##"><img src="<?=base_url()?>assets/abelostyle/assets/images/menu-image/banner-menu3.jpg" alt="" /></a> -->
                                                     </li>
                                                 </ul>
                                             </li>
@@ -463,30 +461,7 @@
             </div>
             <div class="body customScroll">
                 <ul id="sectionCarrito" class="minicart-product-list">
-                    <li>
-                        <a href="#single-product.html" class="image"><img src="<?=base_url()?>assets/abelostyle/assets/images/product-image/1.jpg" alt="Cart product Image"></a>
-                        <div class="content">
-                            <a href="#single-product.html" class="title">Walnut Cutting Board</a>
-                            <span class="quantity-price">1 x <span class="amount">$100.00</span></span>
-                            <a href="##" class="remove">×</a>
-                        </div>
-                    </li>
-                    <li>
-                        <a href="#single-product.html" class="image"><img src="<?=base_url()?>assets/abelostyle/assets/images/product-image/2.jpg" alt="Cart product Image"></a>
-                        <div class="content">
-                            <a href="#single-product.html" class="title">Lucky Wooden Elephant</a>
-                            <span class="quantity-price">1 x <span class="amount">$35.00</span></span>
-                            <a href="##" class="remove">×</a>
-                        </div>
-                    </li>
-                    <li>
-                        <a href="#single-product.html" class="image"><img src="<?=base_url()?>assets/abelostyle/assets/images/product-image/3.jpg" alt="Cart product Image"></a>
-                        <div class="content">
-                            <a href="#single-product.html" class="title">Fish Cut Out Set</a>
-                            <span class="quantity-price">1 x <span class="amount">$9.00</span></span>
-                            <a href="##" class="remove">×</a>
-                        </div>
-                    </li>
+                  
                 </ul>
             </div>
             <div class="foot">
