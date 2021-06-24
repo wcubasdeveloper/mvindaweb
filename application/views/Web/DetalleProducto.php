@@ -1,6 +1,7 @@
+        <img src="http://www.abexacloud.com/XBest/Adjunto/imagenproducto/20602732402/imgproducto_2622.jpg" />
 
-              <!-- News letter area  End -->
 
+        <!-- News letter area  End -->
         <div id="fb-root"></div>
         <script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v11.0&appId=3058970330780590&autoLogAppEvents=1" nonce="RV39vIoK"></script>
 
