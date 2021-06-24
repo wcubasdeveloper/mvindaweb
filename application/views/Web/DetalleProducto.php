@@ -191,7 +191,7 @@
                 // $('.imagenproductopequenio').attr('data-zoom-image',urlimagen)
                 // $('.imagenproductopequenio').attr('src',urlimagen)
                 
-                $('#imagenproductodetalle').attr('src','http://www.abexacloud.com/XBest/Adjunto/imagenproducto/20602732402/imgproducto_2622.jpg')
+                $('#imagenproductodetalle').attr('src',urlimagen);
                 // $('.imagenproducto').attr('data-zoom-image',urlimagen)
                 $('#fotoproducto').attr('src',urlimagen);
                 URL_IMG_ZOOM = urlimagen;
