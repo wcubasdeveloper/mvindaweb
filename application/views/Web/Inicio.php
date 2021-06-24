@@ -355,6 +355,7 @@
         }
         //
         var urlproductodetalle = URL_BASE + 'Web/DetalleProducto/?codigoProducto=' +codigoprod;
+        console.log('urlproductodetalle->',urlproductodetalle);
         $('#lblNombreproductomodal').html(nombre);
         $('#lbldescripcionmodal').text(caracteristicas);
         $('#imgProductoselectModal').attr('src',urlprod);
