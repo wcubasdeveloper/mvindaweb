@@ -7,7 +7,7 @@
             background-color: #9e9e9e3d !important;
         }
     </style>
-    
+    <img src="http://www.abexacloud.com/XBest/Adjunto/imagenproducto/20602732402/imgproducto_2622.jpg" />
     <!-- Header Section Start From Here -->
     <header class="header-wrapper">
             <!-- Header Nav Start -->
