@@ -249,9 +249,9 @@
                                                     <!-- <img title="Compartir en facebook" style="width: 38px;cursor:pointer" src="https://images.vexels.com/media/users/3/223136/isolated/preview/984f500cf9de4519b02b354346eb72e0-facebook-icon-redes-sociales-by-vexels.png"> -->
                                                     <li id="social_facebook">
                                                         <div class="social_action">
-                                                            <div class="fb-share-button" 
+                                                            <div id="btncompartirfacebook" class="fb-share-button" 
                                                             data-size="large" 
-                                                            data-href="https://www.w3schools.com/w3css/w3css_modal.asp" 
+                                                            data-href="" 
                                                             data-type="button"></div>
                                                         </div>
                                                     </li>
@@ -310,6 +310,7 @@
     };
     //
     function verDetalleProducto(elemento){
+    
         $('#txtcantidad').val(1);
         $('#lblNombreproductomodal').text('-');
         $('#lblpreciomodal').text('-');
@@ -353,9 +354,15 @@
             $('#lblpreciomodal').text('S./ '+ Number(preciosoles).toFixed(2) + ' ($ '+ Number(preciodolares).toFixed(2) +')');
         }
         //
+        var urlproductodetalle = URL_BASE + 'Web/DetalleProducto/?codigoProducto=' +codigoprod;
         $('#lblNombreproductomodal').html(nombre);
         $('#lbldescripcionmodal').text(caracteristicas);
         $('#imgProductoselectModal').attr('src',urlprod);
+        $('#btncompartirfacebook').attr('data-href',urlproductodetalle)
+        $('#btncompartirfacebook').attr('href',urlproductodetalle)
+
+
+
         ITEMPRODUCTO.idproducto = Number(codigoprod);
         ITEMPRODUCTO.nomProducto = nombre;
         ITEMPRODUCTO.marca = marcaprod;

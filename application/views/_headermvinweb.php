@@ -651,7 +651,6 @@
     var COSTO_DOLAR_HOY = 3.840;
     var URL_BASE = '<?=base_url()?>';
 
-    console.log("URL_BASE->", URL_BASE);
     $(document).ready(function () {
 
         //
@@ -696,7 +695,7 @@
                         $('#ui-id-1').empty();
                         var strHTMLlista = '';
                         $.each(dataBusquedaProducto,function(){
-                            console.log("this->", this);
+                            
                             var precioVenta = this.PrecioVenta;
                             var precio_venta_soles = (this.CodMoneda == 1 ? precioVenta : (precioVenta * COSTO_DOLAR_HOY) );
                             var precio_venta_dolares = (this.CodMoneda == 2 ? precioVenta : (precioVenta/COSTO_DOLAR_HOY) );
@@ -753,7 +752,7 @@
 
     function clickproducto(elemento){
         var codigoProducto = elemento.attr('data-codigoproducto');
-        var urlredirect = URL_BASE + '/Web/DetalleProducto/?codigoProducto=' + codigoProducto;
+        var urlredirect = URL_BASE + 'Web/DetalleProducto/?codigoProducto=' + codigoProducto;
         window.location.replace(urlredirect);
     }
 
@@ -831,7 +830,6 @@
     }
 
     function setLocalDataCarrito(datacarrito){
-        console.log("data-carrito", datacarrito);
         localStorage.setItem("datacarritocompra", datacarrito);
         // alert("se agregó el producto con éxito");
     }
@@ -951,7 +949,7 @@
 
     function listarProductoEnCarrito(){
         var productosCarrito = JSON.parse(getLocalDataCarrito()); //  JSON.parse(getLocalDataCarrito());
-        console.log("productosCarrito", productosCarrito );
+        
         var cantidadProducto = 0;
         $('#cantidadProductos').text('0');
         // console.log("productosCarrito", productosCarrito);
