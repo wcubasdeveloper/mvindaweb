@@ -7,7 +7,7 @@
             background-color: #9e9e9e3d !important;
         }
     </style>
-    <img src="http://www.abexacloud.com/XBest/Adjunto/imagenproducto/20602732402/imgproducto_2622.jpg" />
+    <img style="display:none;" src="http://www.abexacloud.com/XBest/Adjunto/imagenproducto/20602732402/imgproducto_2622.jpg" />
     <!-- Header Section Start From Here -->
     <header class="header-wrapper">
             <!-- Header Nav Start -->
@@ -33,7 +33,7 @@
                     <div class="row">
                         <div class="col-md-3 d-flex">
                             <div class="logo align-self-center">
-                                <!-- <a href="<?=base_url()?>"><img class="img-responsive" src="<?=base_url()?>assets/images/Logo.png" alt="logo.jpg" /></a> -->
+                                <a href="<?=base_url()?>"><img class="img-responsive" src="<?=base_url()?>assets/images/Logo.png" alt="logo.jpg" /></a>
                             </div>
                         </div>
                         <div class="col-md-9 align-self-center">
@@ -324,7 +324,7 @@
                 <!-- Header Logo Start -->
                 <div class="col">
                     <div class="header-logo">
-                        <!-- <a href="#index.html"><img class="img-responsive" src="<?=base_url()?>assets/images/Logo.png" alt="logo.jpg" /></a> -->
+                        <a href="#index.html"><img class="img-responsive" src="<?=base_url()?>assets/images/Logo.png" alt="logo.jpg" /></a>
                     </div>
                 </div>
                 <!-- Header Logo End -->
