@@ -134,7 +134,7 @@
     
 
     function compartirProducto(e){
-        var url = "http://www.mvinda.com/Web/DetalleProducto/?codigoProducto=130";
+        var url = "http://www.mvinda.com/Web/DetalleProducto/?codigoProducto=122";
         window.open('https://www.facebook.com/sharer/sharer.php?u=' + url,
             'facebook-share-dialog',
             'width=800,height=600'
