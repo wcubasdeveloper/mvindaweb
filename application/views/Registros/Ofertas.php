@@ -163,6 +163,8 @@ $(document).ajaxComplete(function(event, jqXHR, settings) {
 	$('#msjload').fadeOut();
 });
 
+var dateToday = new Date();
+
 $(document).ready(function(){
     getCategorias();
     $('#txtvencimiento').datepicker({
@@ -174,6 +176,7 @@ $(document).ready(function(){
         monthNamesShort: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
         dateFormat: 'dd/mm/yy',
         changeMonth: true,
+        minDate: dateToday,
         changeYear: true,
         yearRange: "-90:+0"
     }).inputmask('dd/mm/yyyy', { placeholder: '__/__/____' });
