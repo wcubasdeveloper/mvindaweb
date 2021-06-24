@@ -231,10 +231,10 @@
                                             <li class="w-100">
                                                 <ul class="banner-megamenu-wrapper d-flex">
                                                     <li class="banner-wrapper mr-30px">
-                                                        <a href="##"><img src="<?=base_url()?>assets/abelostyle/assets/images/menu-image/banner-menu2.jpg" alt="" /></a>
+                                                        <!-- <a href="##"><img src="<?=base_url()?>assets/abelostyle/assets/images/menu-image/banner-menu2.jpg" alt="" /></a> -->
                                                     </li>
                                                     <li class="banner-wrapper">
-                                                        <a href="##"><img src="<?=base_url()?>assets/abelostyle/assets/images/menu-image/banner-menu3.jpg" alt="" /></a>
+                                                        <!-- <a href="##"><img src="<?=base_url()?>assets/abelostyle/assets/images/menu-image/banner-menu3.jpg" alt="" /></a> -->
                                                     </li>
                                                 </ul>
                                             </li>
