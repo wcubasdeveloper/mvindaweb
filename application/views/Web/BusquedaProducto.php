@@ -152,16 +152,12 @@
         <!-- Modal end -->
 
 <script>
- 
- 
     $(document).ready(function () {
-        // console.log("terminoBusqueda---->>", terminoBusqueda);
+        //console.log("terminoBusqueda---->>", terminoBusqueda);
         getproductosBusqueda();
         $('#txtbusquedaproducto').val(terminoBusqueda);
     });
-    
-   
-
+    //
     function getproductosBusqueda(){
         var parametros = terminoBusqueda + '|' + 1;
         var URL_GET_PRODUCTOS = "<?php echo base_url()."XbestServicio/getProductosByLike" ?>";
@@ -181,8 +177,7 @@
             var strHTMLtab2 = "";
             
             $.each(jsonData ,function(){
-                console.log("this", this);
-                //
+                
                 var precioVenta = this.PrecioVenta;
                 // var precio_venta_soles = (this.CodMoneda == 1 ? precioVenta : (precioVenta * COSTO_DOLAR_HOY) );
                 // var precio_venta_dolares = (this.CodMoneda == 2 ? precioVenta : (precioVenta/COSTO_DOLAR_HOY) );
@@ -208,17 +203,17 @@
                                                     '<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 p-10">' +
                                                         '<div class="left-img">' +
                                                             '<div class="img-block">' +
-                                                                '<a href="single-product.html" class="thumbnail">' +
+                                                                // '<a href="single-product.html" class="thumbnail">' +
                                                                     '<img class="first-img" src="'+urlimagenProducto+'"  />' +
-                                                                '</a>'+
+                                                                // '</a>'+
                                                             '</div>'+
                                                         '</div>'+
                                                     '</div>'+
                                                     '<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 p-10">'+
                                                         '<div class="product-desc-wrap">'+
                                                             '<div class="product-decs">'+
-                                                                '<h2><a href="single-product.html" class="product-link">'+ this.NomProducto +'</a></h2>'+
-                                                                '<a class="inner-link" href="shop-4-column.html"><span style="font-size: 31px;" >'+ this.Marca +'</span></a>'+
+                                                                '<h2><a href="'+ URL_BASE + '/Web/DetalleProducto/?codigoProducto=' + codigoProducto +'" class="product-link">'+ this.NomProducto +'</a></h2>'+
+                                                                '<span class="inner-link" ><span style="font-size: 31px;" >'+ this.Marca +'</span></span>'+
                                                                 '<div class="product-intro-info">'+
                                                                     '<p>'+ (caracteristicas.length == 0 ? 'No se ha registrado ninguna descripción' :  caracteristicas ) +'</p>'+
                                                                 '</div>'+
@@ -232,9 +227,9 @@
                                                                             '<li class="current-price">S/. ' + precioventasoles.toFixed(2) + ' ($ '+ precioventadolares.toFixed(2) +')</li>'+
                                                                         '</ul>'+
                                                                     '</div>'+
-                                                                    '<div class="cart-btn" style="text-align: center;" >'+
-                                                                        '<a href="#" class="add-to-curt" title="Agregar al carrito de compras">Comprar</a>'+
-                                                                    '</div>'+
+                                                                    // '<div class="cart-btn" style="text-align: center;" >'+
+                                                                    //     '<a href="#" class="add-to-curt" title="Agregar al carrito de compras">Comprarrr</a>'+
+                                                                    // '</div>'+
                                                                     '<div class="add-to-link">'+
                                                                         '<ul>'+
                                                                             '<li style="padding-right: 10px;" >'+
@@ -272,9 +267,9 @@
                                             '<article class="list-product p-10 text-center"  >' + 
                                                 '<div class="product-inner" style="box-shadow: 0px 0px 4.65px 0.35px rgb(0 0 0 / 20%);" >' +
                                                     '<div class="img-block">' +
-                                                        '<a href="#" class="thumbnail">' +
+                                                        // '<a href="#" class="thumbnail">' +
                                                             '<img class="first-img" src=" '+ urlimagenProducto+' " alt="" />' +
-                                                        '</a>' + 
+                                                        // '</a>' + 
                                                         '<div class="add-to-link">' +
                                                             '<ul>' +
                                                                 '<li>' +
@@ -298,7 +293,7 @@
                                                     '</div>' +
                                                     '<div class="product-decs">' +
                                                         '<a class="inner-link" href="shop-4-column.html"><span style="font-size: 20px;" >'+ this.Marca +'</span></a>' +
-                                                        '<h2><a href="single-product.html" class="product-link">'+ this.NomProducto +'</a></h2>' +
+                                                        '<h2><a href="'+ URL_BASE + '/Web/DetalleProducto/?codigoProducto=' + codigoProducto +'" class="product-link">'+ this.NomProducto +'</a></h2>' +
                                                         '<div class="pricing-meta">' +
                                                             '<ul>' +
                                                                 // '<li class="old-price">$23.90</li>' +
@@ -366,9 +361,7 @@
         var costoconofertasoles =  elemento.attr('data-costoofertasoles');
         var costoconofertadolares =  elemento.attr('data-costoofertadolares');
         //
-        // console.log("percentdctooferta->", percentdctooferta);
-        //  console.log("oferta->", productoenoferta);
-        console.log('caracteristicas-->',caracteristicas);
+        
         $('#lbltextoNuevo').text('-').prop('hidden', true);
         $('#lblpreciomodal').text('S./ '+ Number(preciosoles).toFixed(2) + ' ($ '+ Number(preciodolares).toFixed(2) +')');
         $('#lblNombreproductomodal').html(nombre);
@@ -415,17 +408,13 @@
             getProductosEnCarrito = getLocalDataCarrito();
             //
             getProductosEnCarrito = JSON.parse(getProductosEnCarrito)
-            //
-            // console.log(getProductosEnCarrito)
-            console.log("3-->");
+            
             if(ITEMPRODUCTO){
-                console.log("4-->");
                 
                 rptaBusquedaProducto = busquedaDeProducto(ITEMPRODUCTO.idproducto);
-                console.log("5-->");
+                
                 if(!rptaBusquedaProducto){ //si no está el producto en el carrito
                     // console.log("no está en el carrito-->");
-                    console.log("6-->");
                     
                     getProductosEnCarrito.push(ITEMPRODUCTO);
                     setLocalDataCarrito( JSON.stringify(getProductosEnCarrito));
@@ -455,7 +444,7 @@
                             // var interval = setInterval(function() {
                             Swal.fire({
                                     icon: 'success',// : 'error',
-                                    title: "El producto se agegró correctamente al carrito de compras.",
+                                    title: "El producto se agregó correctamente al carrito de compras.",
                                     showConfirmButton: false,
                                     timer: 3000
                                 });    
@@ -466,12 +455,12 @@
                         }
                     }
                     $('#modalDetalleProducto').modal('hide');
-                    // Swal.fire({
-                    //     icon: 'success',// : 'error',
-                    //     title: "El producto se agegró correctamente al carrito de compras.",
-                    //     showConfirmButton: false,
-                    //     timer: 3000
-                    // });
+                    Swal.fire({
+                        icon: 'success',// : 'error',
+                        title: "El producto se agregó correctamente al carrito de compras.",
+                        showConfirmButton: false,
+                        timer: 3000
+                    });
 
                 }
             }

@@ -67,11 +67,16 @@
                                         <img src="http://localhost/mvindaweb/assets/abelostyle/assets/images/banner-image/11.jpg" alt="">
                                     </div>
                                 </div>
+                             
                                 <div class="form-group row">
                                     <div class="col-sm-12">
                                         <button style="width: 100%;" onclick="actualizarDatosConfiguracion();" type="button" class="btn btn-w-m btn-info">Guardar</button>
                                     </div>
                                 </div>
+                                
+                                    
+
+
                             </div>
                         </div>
                     </div>

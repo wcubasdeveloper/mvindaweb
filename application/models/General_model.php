@@ -38,8 +38,156 @@ class General_model extends CI_Model {
 		
 		return $rpta;
 	}
+
+	public function ProcPedidoTran($datoscliente, $datosdireccion, $datosPedido,  $datosPedidoDetalle) {
+
+		$ServidorBD = $this->db->hostname;
+		$UsuarioBD = $this->db->username;
+		$ClaveBD = $this->db->password;
+		$BaseDatos = $this->db->database;
+		$Fila = '';
+		//
+		$link = mysqli_connect($ServidorBD, $UsuarioBD, $ClaveBD, $BaseDatos);
+		mysqli_autocommit($link, FALSE);
+		$tildes = $link->query("SET NAMES 'utf8'"); //Para que se muestren las tildes correctamente
+		$Indice = 10; //para el registro del cliente
+		//registra cliente
+		$Query = "CALL " . "MvindaProcPedido" . " ('" . $datoscliente . "', " . $Indice . ");";
+		$insertarCliente = mysqli_query($link, $Query);
+
+		if(!$insertarCliente){
+			mysqli_rollback($link);
+			$Query = "SELECT 0 AS CodResultado, 'Ocurrió un error al registrar " . $Query . "'  AS DesResultado;";
+			$Respuesta = mysqli_query($link, $Query);
+			// var_dump("result");
+			// var_dump($Respuesta);
+			$Resultado = mysqli_fetch_assoc($Respuesta);
+			//
+			return $Resultado;
+		}
+
+		$Query = 'SELECT	LAST_INSERT_ID();';
+		$insertarCliente = mysqli_query($link, $Query);
+		$Resultado = mysqli_fetch_row($insertarCliente);
+
+		$CodClienteInserto = $Resultado[0]; //codigo del cliente registrado
+
+		//registro de la dirección
+		$Indice = 11;
+		$Query = "CALL " . "MvindaProcPedido" . " ('" . $datosdireccion . "', " . $Indice . ");";
+		$insertarDireccion = mysqli_query($link, $Query);
+
+		if(!$insertarDireccion){
+			mysqli_rollback($link);
+			$Query = "SELECT 0 AS CodResultado, 'Ocurrió un error al registrar " . $Query . "'  AS DesResultado;";
+			$Respuesta = mysqli_query($link, $Query);
+			// var_dump("result");
+			// var_dump($Respuesta);
+			$Resultado = mysqli_fetch_assoc($Respuesta);
+			return $Resultado;
+		}
+
+		$Query = 'SELECT	LAST_INSERT_ID();';
+		$insertarDireccion = mysqli_query($link, $Query);
+		$Resultado = mysqli_fetch_row($insertarDireccion);
+		$codDireccionEnvio =  $Resultado[0];//codigo de la dirección registrada
+		//
+
+		//insertando el PEDIDO
+		$datosPedido = $CodClienteInserto."|". $codDireccionEnvio."|".$datosPedido;
+		$Indice = 12;
+		$Query = "CALL " . "MvindaProcPedido" . " ('" . $datosPedido . "', " . $Indice . ");";
+		$insertarPedido = mysqli_query($link, $Query);
+
+		//
+		if(!$insertarPedido){
+			mysqli_rollback($link);
+			$Query = "SELECT 0 AS CodResultado, 'Ocurrió un error al registrar " . $Query . "'  AS DesResultado;";
+			$Respuesta = mysqli_query($link, $Query);
+			// var_dump("result");
+			// var_dump($Respuesta);
+			$Resultado = mysqli_fetch_assoc($Respuesta);
+			return $Resultado;
+		}
+
+		$Query = 'SELECT	LAST_INSERT_ID();';
+		$insertarPedido = mysqli_query($link, $Query);
+		$Resultado = mysqli_fetch_row($insertarPedido);
+		$codPedido =  $Resultado[0];//codigo de la dirección registrada
+
+		//registrando el detalle del pedido
+		$arrDetalleProducto = "";
+		$Fila;
+		$Columna;
+		$FilaArray;
+
+		// Deserializa Detalle
+		if (!$datosPedidoDetalle == '') {
+			$ParametrosDetalleArray = explode('~', $datosPedidoDetalle);
+			foreach ($ParametrosDetalleArray as &$Fila) {
+
+				// SET intIdPed = Split(Parametros, '|', 1);
+				// SET intIdProducto = Split(Parametros, '|', 2);
+
+				// SET decPrecioProductoDolar = Split(Parametros, '|', 3);
+				// SET decPrecioProductoSoles = Split(Parametros, '|', 4);
+				// SET intCantidadDetPed = Split(Parametros, '|', 5);
+				// SET varMarca = Split(Parametros, '|', 6);
+				// SET varDescripcionProducto = Split(Parametros, '|', 7);
+
+				$FilaArray = explode('|', $Fila);
+				$idProducto = $FilaArray[0];
+				$cantidad = $FilaArray[1];
+				$preciodolares = $FilaArray[2];
+				$preciosoles = $FilaArray[3];
+				$nombreProducto = $FilaArray[4];
+				$marca = $FilaArray[5];
+				$descripcion = $FilaArray[6];
+				//
+				$ParametroDetalle = $codPedido . '|' . $idProducto. '|' . $preciodolares. '|' .$preciosoles.'|'. $cantidad .'|'. $marca . '|' .$descripcion;
+				$Indice = 13;
+				$Query = 'CALL ' . 'MvindaProcPedido' . ' ("' . $ParametroDetalle . '", ' . $Indice . ')';
+				$InsertarPedidoDetalle = mysqli_query($link, $Query);
+				//
+				if (!$InsertarPedidoDetalle) {
+					mysqli_rollback($link);
+					$Query = "SELECT 0 AS CodResultado, 'Ocurrió un error detalle " . $codPedido . "' AS DesResultado;";
+					$Respuesta = mysqli_query($link, $Query);
+					$Resultado = mysqli_fetch_assoc($Respuesta);
+					//
+					return $Resultado;
+				}
+				//
+				$Query = 'SELECT	LAST_INSERT_ID();';
+				$InsertarPedidoDetalle = mysqli_query($link, $Query);
+				$Resultado = mysqli_fetch_row($InsertarPedidoDetalle);
+				// Obtiene maestro correlativo
+				$CodPedidoDetalle = $Resultado[0];
+
+				if ($CodPedidoDetalle == 0) {
+					mysqli_rollback($link);
+					$Query = "SELECT 0 AS CodResultado, 'Ocurrió un error detalle 2' AS DesResultado;";
+					$Respuesta = mysqli_query($link, $Query);
+					$Resultado = mysqli_fetch_assoc($Respuesta);
+					//
+					return $Resultado;
+				}
+			}
+			//
+			$Query = 'SELECT 1 AS CodResultado, "Registró con exito, sucodigo de pedido es : ' . $codPedido . '" AS DesResultado, ' . $codPedido . ' AS CodAuxiliar;';
+			$Respuesta = mysqli_query($link, $Query);
+			$Resultado = mysqli_fetch_assoc($Respuesta);
+			//
+			mysqli_commit($link);
+			mysqli_close($link);
+			return $Resultado;
+		}
+
+		return $Resultado;
+	}
+
 	public function ProcGeneral2($Procedimiento, $Parametros, $Indice) {
-				$rpta = "";
+		$rpta = "";
 		try {
 				$query = $this->db->query("CALL " . $Procedimiento . "('" . $Parametros . "', " . $Indice . ")");
 				$row = $query->result_array();

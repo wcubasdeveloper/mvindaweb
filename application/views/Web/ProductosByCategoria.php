@@ -69,7 +69,8 @@
 
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.blockUI/2.70/jquery.blockUI.js"></script> -->
-
+<div id="fb-root"></div>
+        <script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v11.0&appId=3058970330780590&autoLogAppEvents=1" nonce="RV39vIoK"></script>
 
     <!-- Modal -->
     <div class="modal fade" id="modalDetalleProducto" tabindex="-1" role="dialog">
@@ -138,6 +139,7 @@
                                                             data-type="button"></div>
                                                         </div>
                                                     </li>
+                                                    
                                                 </li>
                                             </ul>
                                         </div>
@@ -217,8 +219,8 @@
                                                     '<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 p-10">'+
                                                         '<div class="product-desc-wrap">'+
                                                             '<div class="product-decs">'+
-                                                                '<h2><a href="single-product.html" class="product-link">'+ this.NomProducto +'</a></h2>'+
-                                                                '<a class="inner-link" href="shop-4-column.html"><span style="font-size: 31px;" >'+ this.Marca +'</span></a>'+
+                                                                '<h2><a   href="'+ URL_BASE + '/Web/DetalleProducto/?codigoProducto=' + codigoProducto +'"  class="product-link"  style="font-size: 0.7em; font-weight: bold;" >'+ this.NomProducto +'</a></h2>'+
+                                                                '<span class="inner-link" ><span style="font-size: 21px;" >'+ this.Marca +'</span></span>'+
                                                                 '<div class="product-intro-info">'+
                                                                     '<p>'+ (caracteristicas.length == 0 ? 'No se ha registrado ninguna descripción' :  caracteristicas ) +'</p>'+
                                                                 '</div>'+
@@ -232,9 +234,9 @@
                                                                             '<li class="current-price">S/. ' + precioventasoles.toFixed(2) + ' ($ '+ precioventadolares.toFixed(2) +')</li>'+
                                                                         '</ul>'+
                                                                     '</div>'+
-                                                                    '<div class="cart-btn" style="text-align: center;" >'+
-                                                                        '<a href="#" class="add-to-curt" title="Agregar al carrito de compras">Comprar</a>'+
-                                                                    '</div>'+
+                                                                    // '<div class="cart-btn" style="text-align: center;" >'+
+                                                                    //     '<a href="#" class="add-to-curt" title="Agregar al carrito de compras">Comprar</a>'+
+                                                                    // '</div>'+
                                                                     '<div class="add-to-link">'+
                                                                         '<ul>'+
                                                                             '<li style="padding-right: 10px;" >'+
@@ -272,9 +274,11 @@
                                             '<article class="list-product p-10 text-center"  >' + 
                                                 '<div class="product-inner" style="box-shadow: 0px 0px 4.65px 0.35px rgb(0 0 0 / 20%);" >' +
                                                     '<div class="img-block">' +
-                                                        '<a href="#" class="thumbnail">' +
+                                                        // '<a href="#" class="thumbnail">' +
+                                                        '<div>' +
                                                             '<img class="first-img" src=" '+ urlimagenProducto+' " alt="" />' +
-                                                        '</a>' + 
+                                                        // '</a>' + 
+                                                        '</div>' +
                                                         '<div class="add-to-link">' +
                                                             '<ul>' +
                                                                 '<li>' +
@@ -297,8 +301,8 @@
                                                         '</div>' +
                                                     '</div>' +
                                                     '<div class="product-decs">' +
-                                                        '<a class="inner-link" href="shop-4-column.html"><span style="font-size: 20px;" >'+ this.Marca +'</span></a>' +
-                                                        '<h2><a href="single-product.html" class="product-link">'+ this.NomProducto +'</a></h2>' +
+                                                        '<span class="inner-link" ><span style="font-size: 20px;" >'+ this.Marca +'</span></span>' +
+                                                        '<h2><a href="'+ URL_BASE + '/Web/DetalleProducto/?codigoProducto=' + codigoProducto +'" style="font-weight: bold; color: #5d5d5d;" class="product-link">'+ this.NomProducto +'</a></h2>' +
                                                         '<div class="pricing-meta">' +
                                                             '<ul>' +
                                                                 // '<li class="old-price">$23.90</li>' +

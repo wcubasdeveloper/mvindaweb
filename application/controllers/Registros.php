@@ -43,6 +43,18 @@ public function procGeneralWebHook(){
     echo json_encode($resultado);
     //echo $resultado;
   }
+
+  public function procRegistraPedido(){
+    $paramCliente = $this->input->post('datoscliente'); //cambiar por post
+    $paramDireccion = $this->input->post('datosdireccion'); //cambiar por post
+    $paramPedido = $this->input->post('datospedido'); //cambiar por post
+    $paramPedidoDetalle = $this->input->post('datosPedidoDetalle'); //cambiar por post
+
+    $resultado = $this->general_model->ProcPedidoTran($paramCliente, $paramDireccion, $paramPedido, $paramPedidoDetalle);
+    echo json_encode($resultado);
+  }
+
+
   public function producto($Titulo){
     $this->load->library('session');
     if(empty($this->session->userdata('username'))){
@@ -286,6 +298,64 @@ public function procGeneralWebHook(){
       $this->load->view('/footeradmin');
     }
   
+    public function Pedido($Titulo){
+ 
+      // $this->load->library('session');
+      // if(empty($this->session->userdata('username'))){
+      //     redirect('user/login');
+      // }
+
+      $nombreusuario = $_SESSION['username'];
+      /***** desarrollo *****/
+      if(empty($nombreusuario)){
+        redirect('user/login');
+      }
+
+
+      $datos["nomusuario"] = $nombreusuario;
+      //
+      $Data['Titulo'] = $Titulo;
+      $Controlador = $this->router->fetch_class();
+      $Accion = $this->router->fetch_method();
+      //
+      $Vista = $Controlador . '/' . $Accion;
+      //
+      $this->general_model->ProcActualizaUltimaVista($Vista . '/' . $Titulo);
+
+      $this->load->view('/layout_principal', $Data);
+      $this->load->view('/' . $Vista,$datos);
+      $this->load->view('/footeradmin');
+    }
+
+    public function MuestraCategorias($Titulo){
+ 
+      // $this->load->library('session');
+      // if(empty($this->session->userdata('username'))){
+      //     redirect('user/login');
+      // }
+
+      $nombreusuario = $_SESSION['username'];
+      /***** desarrollo *****/
+      if(empty($nombreusuario)){
+        redirect('user/login');
+      }
+
+
+      $datos["nomusuario"] = $nombreusuario;
+      //
+      $Data['Titulo'] = $Titulo;
+      $Controlador = $this->router->fetch_class();
+      $Accion = $this->router->fetch_method();
+      //
+      $Vista = $Controlador . '/' . $Accion;
+      //
+      $this->general_model->ProcActualizaUltimaVista($Vista . '/' . $Titulo);
+
+      $this->load->view('/layout_principal', $Data);
+      $this->load->view('/' . $Vista,$datos);
+      $this->load->view('/footeradmin');
+    }
+
     public function NuevosProductos($Titulo){
  
       //$this->load->library('session');

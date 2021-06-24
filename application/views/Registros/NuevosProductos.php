@@ -195,7 +195,7 @@ function confirmarAnulacion(codproductonuevo, elemento){
   var nombreproducto =  elemento.attr('data-nomproducto');
   var codigoproducto = Number(codproductonuevo);
   var confirmarelimina = confirm("Estas seguro de eliminar el producto " + nombreproducto);
-
+  //
   if(confirmarelimina){
     var parametros = codigoproducto;
     var indice = 43;

@@ -2,10 +2,10 @@
 
 <div class="middle-box text-center loginscreen animated fadeInDown">
 		<div>
-				<div>
+				<div style="padding-bottom: 20px" >
 
 						<h1 class="logo-name">
-<img class="img-responsive" src="<?=base_url()?>images/Logo.png" alt="">
+<img class="img-responsive" src="<?=base_url()?>assets/images/Logo.png" alt="">
 						</h1>
 
 				</div>

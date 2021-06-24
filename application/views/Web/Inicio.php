@@ -88,6 +88,11 @@
         </div>
         <!-- Arrivals Area End --> 
 
+        <div id="sectioncatdinamicas">
+                    
+        </div>
+
+
         <!-- Banner Area Start -->
         <div class="banner-area mt-20px mb-20px ">
             <div class="container">
@@ -290,7 +295,8 @@
 <script>
     var URL_BASE = '<?=base_url()?>';
     $(document).ready(function () {
-        getProductosNuevos();
+       getCategoriasView();
+       getProductosNuevos();
     });
     //
     var ITEMPRODUCTO = {
@@ -432,17 +438,15 @@
                     var rpta = setCantidadProductoCarrito(ITEMPRODUCTO.idproducto, ITEMPRODUCTO.cantidad);
                     var dataaa = JSON.parse(getLocalDataCarrito()); //  JSON.parse(getLocalDataCarrito());
                     if(rpta.codresult == 1){
-                        
-                       
                         //$('#offcanvas-cart').modal('show');
-                        alert("se agregó el producto con exito")
-                        
+                        // alert("se agregó el producto con exito");
+                        // alert("adentrito");
                     }
                 }
                 $('#modalDetalleProducto').modal('hide');
                 Swal.fire({
                     icon: 'success',// : 'error',
-                    title: "El producto se agegró correctamente al carrito de compras.",
+                    title: "El producto se agregó correctamente al carrito de compras.",
                     showConfirmButton: false,
                     timer: 3000
                 });
@@ -1041,7 +1045,197 @@
             $(".se-pre-con").fadeOut("slow");
             getProductosMasVendidos();
         },'JSON');
-
     }
 
+    var JSON_CATEGORIAS_VIEW = null;
+    //
+    function getCategoriasView(){
+        $('#sectioncatdinamicas').html();
+        var parametros = '';
+        var indice = 18;
+        var nomproc = "MvindaProcPedido";
+        $.post(URL_BASE+'Registros/procGeneral', {
+            parametros: parametros,
+            indice: indice,
+            nombreProcedimiento:nomproc
+        }, function (respuesta) {
+            //
+            JSON_CATEGORIAS_VIEW = respuesta;
+            var strCategoriasId = '';
+            $.each(respuesta, function(){
+                strCategoriasId += this.idcategoriaxbest + '|';
+            });
+            //
+            strCategoriasId = strCategoriasId.substring(0, strCategoriasId.length -1);
+            //
+            // console.log("strCategoriasId->", strCategoriasId);            
+            var URL_GET_PROD_BY_CAT = "<?php echo base_url()."XbestServicio/getProductosByCategoriaMult" ?>";
+            $.post(URL_GET_PROD_BY_CAT, {
+                codcategorias: strCategoriasId
+            }, function (productos) {
+                //
+                var grupoProductosByCat = _.groupBy(productos, function (d) { return d.CodCategoriaProducto });
+                //
+                var strCategoriasDinamicas = '';
+                $.each(grupoProductosByCat, function(key, data){
+                    var codigocategoriaview = key;
+                    var nombreCategoriaView = busquedaNombreProducto(codigocategoriaview);
+                    //
+                    strCategoriasDinamicas += '<div class="arrival-area mt-20px mt-lg-50px">' +
+                                                '<div class="container">' +
+                                                    '<div class="row">' +
+                                                        '<div class="col-md-12">' +
+                                                            '<div class="section-title">' +
+                                                                '<h2>'+ nombreCategoriaView +'</h2>' +
+                                                                '<ul class="nav nav-tabs sub-category">' +
+                                                                    '<li class="nav-item">' +
+                                                                        '<a class="nav-link active" data-toggle="tab" href="##tab-1"></a>' +
+                                                                    '</li>' +
+                                                                '</ul>' +
+                                                            '</div>' +
+                                                        '</div>' +
+                                                    '</div>' +
+                                                    '<div class="tab-content">' +
+                                                        '<div id="tab-1" class="tab-pane active fade">' +
+                                                            '<div  class="arrival-slider-wrapper-produc slider-nav-style-1">';
+                    var strHTMLproductos = '';                           
+                    $.each(data, function(){
+                        var codigoProducto = this.CodProducto;
+                        var urlimagenuno = this.NomProductoUM; 
+                        var nombreproductoUno = this.NomProducto; 
+                        var precioventauno = this.PrecioVenta;
+
+                        var codmonedauno = this.CodMoneda;
+                        var precio_venta_soles = (codmonedauno == 1 ? precioventauno : (precioventauno * COSTO_DOLAR_HOY) );
+                        var precio_venta_dolares = (codmonedauno == 2 ? precioventauno : (precioventauno/COSTO_DOLAR_HOY) );
+                        var caracteristicas = this.Caracteristicas;
+                        var urlimagen = ( urlimagenuno.length == 0 ? '<?=base_url()?>assets/abelostyle/assets/images/product-image/8.jpg' : 'http://www.abexacloud.com/XBest/Adjunto/imagenproducto/20602732402/'+ urlimagenuno );
+                        var marcauno = (this.Marca ? this.Marca : '-') ;
+
+
+                        strHTMLproductos += '<div class="slider-single-item">' +
+                                '<article class="list-product text-center">' +
+                                    '<div class="product-inner">' +
+                                        '<div class="img-block">' +
+                                            '<a href="'+ URL_BASE + '/Web/DetalleProducto/?codigoProducto=' + codigoProducto +'" class="thumbnail">' +
+                                                 ( urlimagenuno.length == 0 ? '<img class="first-img" src="<?=base_url()?>assets/abelostyle/assets/images/product-image/4.jpg" alt="" />' : '<img class="first-img" src="http://www.abexacloud.com/XBest/Adjunto/imagenproducto/20602732402/'+ urlimagenuno +'" alt="" />' ) +
+                                            '</a>' +
+                                            '<div class="add-to-link">' +
+                                                '<ul>' +
+                                                    '<li>' +
+                                                        '<span '+
+                                                            ' data-codproducto="'+ codigoProducto +'" '+
+                                                            ' data-nombre="'+ nombreproductoUno +'" '+
+                                                            ' data-psoles="'+ precio_venta_soles +'" '+
+                                                            ' data-pdolares="'+ precio_venta_dolares +'" '+
+                                                            ' data-caracteristicas="'+ caracteristicas +'" '+
+                                                            ' data-urlimg="'+ urlimagen +'" '+
+                                                            ' data-marca="'+ marcauno +'" '+
+                                                            ' data-nuevo="NO" ' +
+                                                        '  onclick="verDetalleProducto($(this));" class="quick_view" data-link-action="quickview" title="Ver detalle del producto" >' +
+                                                            '<i class="lnr lnr-magnifier"></i>' +
+                                                        '</span>' +
+                                                    '</li>' +
+                                                    '<li>' +
+                                                        '<span '+
+                                                            ' data-codproducto="'+ codigoProducto +'" '+
+                                                            ' data-nombre="'+ nombreproductoUno +'" '+
+                                                            ' data-psoles="'+ precio_venta_soles +'" '+
+                                                            ' data-pdolares="'+ precio_venta_dolares +'" '+
+                                                            ' data-caracteristicas="'+ caracteristicas +'" '+
+                                                            ' data-urlimg="'+ urlimagen +'" '+
+                                                            ' data-marca="'+ marcauno +'" '+
+                                                        '  onclick="accesodirectoagregacarrito($(this));" title="agregar al carrito"><i class="lnr lnr-cart"></i></span>' +
+                                                    '</li>' +
+                                                '</ul>' +
+                                            '</div>' +
+                                        '</div>' +
+                                        // '<ul class="product-flag">' +
+                                        //     '<li class="new">Nuevo</li>' +
+                                        // '</ul>' +
+                                        '<div class="product-decs">' +
+                                            '<span style="font-size: 18px;white-space: nowrap;"  >'+ marcauno +'</span>' +
+                                            '<h2><span class="product-link" style="white-space: nowrap;" >'+ nombreproductoUno +'</span></h2>' +
+                                            '<div class="pricing-meta">' +
+                                                '<ul>' +
+                                                    '<li class="current-price">' + 'S./ ' + precio_venta_soles.toFixed(2) +' ($ ' + precio_venta_dolares.toFixed(2) + ')</li>' +
+                                                '</ul>' +
+                                            '</div>' +
+                                        '</div>' +
+                                        '<div class="cart-btn">' +
+                                            '<a href="'+ URL_BASE + '/Web/DetalleProducto/?codigoProducto=' + codigoProducto +'" class="add-to-curt" title="Ver producto ">Ver Producto</a>' +
+                                        '</div>' +
+                                    '</div>' +
+                                '</article>' +
+                            '</div>';
+
+                    });
+
+                    strCategoriasDinamicas += strHTMLproductos;
+                    strCategoriasDinamicas +=           '</div>' +
+                                                    '</div>' +
+                                                '</div>' +
+                                            '</div>' +
+                                        '</div>';
+                });
+                //
+                $('#sectioncatdinamicas').html(strCategoriasDinamicas);
+                //
+                $('.arrival-slider-wrapper-produc').slick({
+                    infinite: true,
+                    autoplay: true,
+                    slidesToShow: 5,
+                    arrows: true,
+                    loop: true,
+                    slidesToScroll: 1,
+                    prevArrow: '<span class="prev"><i class="ion-ios-arrow-left"></i></span>',
+                    nextArrow: '<span class="next"><i class="ion-ios-arrow-right"></i></span>',
+                    speed: 800,
+                    cssEase: 'linear',
+                    dots: false,
+                    responsive: [{
+                            breakpoint: 1200,
+                            Settings: {
+                                slidesToShow: 4,
+                                slidesToScroll: 1
+                            }
+                        },
+                        {
+                            breakpoint: 992,
+                            Settings: {
+                                slidesToShow: 3,
+                                slidesToScroll: 1
+                            }
+                        },
+                        {
+                            breakpoint: 767,
+                            Settings: {
+                                slidesToShow: 2,
+                                slidesToScroll: 1
+                            }
+                        },
+                        {
+                            breakpoint: 479,
+                            Settings: {
+                                slidesToShow: 1,
+                                slidesToScroll: 1
+                            }
+                        }
+                    ]
+                });
+                // $(".se-pre-con").fadeOut("slow");
+
+            },"JSON");
+        },"JSON");
+    }
+
+    function busquedaNombreProducto(idcategoriaprod){
+        var nomcategoria = "";
+        $.each(JSON_CATEGORIAS_VIEW, function(){
+            if(Number(this.idcategoriaxbest) == Number(idcategoriaprod)){
+                nomcategoria = this.nombrecategoria;
+            }
+        });
+        return nomcategoria;
+    }
 </script>

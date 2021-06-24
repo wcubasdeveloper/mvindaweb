@@ -56,17 +56,17 @@
 
                         <div class="col-md-8" >
                             <div id="mc_embed_signup" class="subscribe-form">
-                                <form style="height: 47px; background: #fff; border: 0; color: #b1b1b1; padding: 15px 120px 0px 20px; display: inline-block; width: 100%; font-size: 14px; border: none; border-radius: 5px;" id="mc-embedded-subscribe-form" class="validate" novalidate="" target="_blank" name="mc-embedded-subscribe-form" method="post" action="http://devitems.us11.list-manage.com/subscribe/post?u=6bbb9b6f5827bd842d9640c82&amp;id=05d85f18ef">
+                                <div style="height: 47px; background: #fff; border: 0; color: #b1b1b1; padding: 15px 120px 0px 20px; display: inline-block; width: 100%; font-size: 14px; border: none; border-radius: 5px;" id="mc-embedded-subscribe-form" class="validate" novalidate="" target="_blank" name="mc-embedded-subscribe-form" method="post" action="http://devitems.us11.list-manage.com/subscribe/post?u=6bbb9b6f5827bd842d9640c82&amp;id=05d85f18ef">
                                     <div id="mc_embed_signup_scroll" class="mc-form">
-                                        <input class="email" type="email" required="" placeholder="Ingresa tu correo" name="EMAIL" value="">
+                                        <input class="email" id="txtcorreosuscripcion" type="email" required="" placeholder="Ingresa tu correo" name="EMAIL" value="">
                                         <div class="mc-news" aria-hidden="true">
                                             <input type="text" value="" tabindex="-1" name="b_6bbb9b6f5827bd842d9640c82_05d85f18ef">
                                         </div>
                                         <div class="clear">
-                                            <input id="mc-embedded-subscribe" style="position: absolute; top: 0; right: 15px; text-transform: capitalize; font-weight: 700; font-size: 14px; color: #ffffff; background: #215adad6; box-shadow: none; padding: 0 20px; line-height: 47px; height: 47px; border-radius: 0 5px 5px 0; transition: all 300ms linear;" class="button" type="submit" name="subscribe" value="Suscribirse">
+                                            <input onclick="suscribiremail();" id="mc-embedded-subscribe" style="position: absolute; top: 0; right: 15px; text-transform: capitalize; font-weight: 700; font-size: 14px; color: #ffffff; background: #215adad6; box-shadow: none; padding: 0 20px; line-height: 47px; height: 47px; border-radius: 0 5px 5px 0; transition: all 300ms linear;" class="button" type="submit" name="subscribe" value="Suscribirse">
                                         </div>
                                     </div>
-                                </form>
+                                </div>
                             </div>
                         </div>
 
@@ -111,5 +111,30 @@
 
         <!-- Main Activation JS -->
         <script src="<?=base_url()?>assets/abelostyle/assets/js/main.js"></script>
+
+        <script>
+            function suscribiremail(){
+                var textoCorreo =  $('#txtcorreosuscripcion').val();
+                if(textoCorreo.length == 0){
+                    Swal.fire({
+                        icon: 'error',// : '',
+                        title: "Debe ingresar un correo válido.",
+                        showConfirmButton: false,
+                        timer: 3000
+                    });
+                }else{
+                    Swal.fire({
+                        icon: 'success',// : 'error',
+                        title: "Gracias por suscribirse a nuestras ofertas.",
+                        showConfirmButton: false,
+                        timer: 3000
+                    });
+                }
+                
+
+                
+            }
+        </script>
+
     </body>
 </html>

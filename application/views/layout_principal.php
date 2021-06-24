@@ -119,12 +119,12 @@
 				<div class="navbar-collapse collapse" id="navbar">
 					<?=$_SESSION['MenuHTML'];?>
 					<ul class="nav navbar-top-links navbar-right">
-						<li >
+						<!-- <li >
 							<a href="#" style="color:green;" ><i class="fa fa-home"></i><span id="txtNombreTiendaGeneral" ><?=$_SESSION['NombreTienda'];?></span></a>
 						</li>
 						<li>
 							<a href="#"style="color:#8383e0;" ><i class="fa fa-cubes"></i><span id="txtNombreAlmacenGeneral" ><?=$_SESSION['NombreAlmacen'];?></span></a>
-						</li>
+						</li> -->
 						<li>
 							<a href="<?=base_url()?>user/logout">
 								<i class="fa fa-sign-out"></i> Salir

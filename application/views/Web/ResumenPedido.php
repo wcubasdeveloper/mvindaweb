@@ -33,7 +33,7 @@
 
                 </div>
 
-                <div class="col-lg-4 col-md-4 col-sm-4 col-4">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-4 sectionconfirmacionenvio" >
                     <div class="grand-totall">
                         <div class="title-wrap">
                             <h4 class="cart-bottom-title section-bg-gary-cart" style="margin-bottom: 11px;" >
@@ -44,7 +44,7 @@
                         <h5>Subtotal <span id="lblsubtotalpagocarrito" >-</span></h5>
                       
                         <h4 class="grand-totall-title" style="padding-top: 32px;" >Total <span id="lbltotalpagocarrito">$260.00</span></h4>
-                        <a href="<?=base_url()?>/Web/TerminarPedido">Confirmar envio</a>
+                        <a href="<?=base_url()?>/Web/TerminarPedido"  >Confirmar envio</a>
                     </div>
                 </div>
             </div>
@@ -55,8 +55,8 @@
     <script>
         $(document).ready(function () {
             getDatosCarritoCompra();
-            
-            $('.offcanvas-toggle').attr('href','');
+            // $('.offcanvas-toggle').attr('href','');
+            $('#sectioncarrritocomprasico').css('display','none');
         });
 
         function getDatosCarritoCompra(){
@@ -92,8 +92,10 @@
                 htmlTabla += '<tr><td colspan="4" style="text-align:center">No hay productos en el carrito</td></tr>';
                 $(".se-pre-con").fadeOut("slow");
                 $('#tbProductosCarrito tbody').append(htmlTabla);
+                $('.sectionconfirmacionenvio').css('display','none');
                 return false;
             }
+            $('.sectionconfirmacionenvio').css('display','block');
 
             $.each(productosCarrito, function(){
                 
@@ -142,7 +144,7 @@
             listarProductoEnCarrito();
             getDatosCarritoCompra();
         }
-        
+
         function disminuyecantidad(idprod, elemento){
             var inputcantidad = elemento.parent().find('input').eq(0);
             var currcantidad = inputcantidad.val();

@@ -57,7 +57,7 @@
                                 <div class="header-tools d-flex">
                                     <div class="cart-info d-flex align-self-center">
                                         <!-- <a href="##offcanvas-wishlist" class="heart offcanvas-toggle"><i class="lnr lnr-heart"></i><span>Wishlist</span></a> -->
-                                        <a  href="#offcanvas-cart" style="color: #252423;font-weight: bold;" class="bag offcanvas-toggle">
+                                        <a id="sectioncarrritocomprasico"  href="#offcanvas-cart" style="color: #252423;font-weight: bold;" class="bag offcanvas-toggle">
                                             <span id="cantidadProductos" style='position: absolute; top: -10px; left: 34px; display: inline-block; width: 16px; height: 16px; color: #fff; background: #e80f17d1; line-height: 16px; font-size: 10px; border-radius: 100%; text-align: center; font-weight: 700;'>
                                                 0
                                             </span>
@@ -653,10 +653,11 @@
 
     console.log("URL_BASE->", URL_BASE);
     $(document).ready(function () {
+
+        //
         getCategorias();
         activarBusqueda();
         activarbusquedamovil();
-
     });
 
     $(document).click(function(event) {
@@ -665,7 +666,6 @@
             $('#ui-id-1, #ui-id-2').css('display','none');
         }
     });
-
 
     var widthbusqueda = 0;
     var dataBusquedaProducto = null;
@@ -681,7 +681,7 @@
 
                 if(request.term.length >= 4){ //si el tecleado es igual o mayor a 4 caracteres
                     $(".ui-menu-item").empty();
-                    var parametros = request.term + '|' + 1;
+                    var parametros = request.term + '|' + 0;
                     var URL_GET_PRODUCTOS = "<?php echo base_url()."XbestServicio/getProductosByLike" ?>";
                     $.post(URL_GET_PRODUCTOS,
                     {
@@ -1009,8 +1009,7 @@
         var urlredirect = URL_BASE + '/Web/ResumenPedido';
         window.location.replace(urlredirect);
     }
-
-
+    
     function getCategorias(){
         //
         // $('#selectCategorias').empty();
@@ -1025,12 +1024,12 @@
         var strHTMLcategoriaMenu = "";
         var strHTMLcategoriaLink = "";
         //
-        console.log('URL_GET_CATEGORIA->', URL_GET_CATEGORIA);
+        // console.log('URL_GET_CATEGORIA->', URL_GET_CATEGORIA);
         //
         $.post(URL_GET_CATEGORIA, data, function (rpta) {
             //var respuestaJSON = JSON.parse(rpta);
-            console.log("categorias-->",rpta );
-            console.log("url CATEGORIAS->>", URL_BASE);
+            // console.log("categorias-->",rpta );
+            // console.log("url CATEGORIAS->>", URL_BASE);
             $.each(rpta,function(){
                 // strHTMLoption += '<option value="'+this.CodCategoriaProducto+'">'+ this.NomCategoriaProducto +'</option>';
                 strHTMLcategoriaMenu += '<li><a href="'+ '<?php base_url()?>' + 'Web/ProductosByCategoria?c=' + this.CodCategoriaProducto +'">' +  '>'+ this.NomCategoriaProducto +'</a></li>';
@@ -1047,6 +1046,11 @@
         },'JSON')
     }
 
+    function limpiarCarritoCompras(){
+        // var datacarritocompras =  [];
+        setLocalDataCarrito(JSON.stringify([]));
+        listarProductoEnCarrito();
+    }
     //limpiarDataLocalStorage();
     listarProductoEnCarrito();
 </script>

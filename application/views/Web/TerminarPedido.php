@@ -198,7 +198,7 @@
                         </div>
 
                         <div class="Place-order mt-25">
-                            <button  class="btn-hover" onclick="registrarPedidoFinal();" type="button" style="background: #4caf50;width:100%">REGISTRAR PEDIDO</button>
+                            <button  class="btn-hover" id="btnRegistrarpedido" onclick="registrarPedidoFinal();" type="button" style="background: #4caf50;width:100%" >REGISTRAR PEDIDO</button>
                             <!-- <a class="btn-hover" href="#" >REGISTRAR PEDIDO</a> -->
                         </div>
 
@@ -258,6 +258,8 @@
     $(document).ready(function () {
         //inicializarmapa();
         getDatosCarritoCompra();
+        // $('.offcanvas-toggle').attr('href','#');
+        $('#sectioncarrritocomprasico').css('display','none');
     });
 
     function getDatosCarritoCompra(){
@@ -334,34 +336,63 @@
 
     function verDetalleProductos(){
 
+        $('#tbProductosDetalle tbody').empty();
+        var productosCarrito = JSON.parse(getLocalDataCarrito()); // get data carrito
+        var strHTMLtabla = '';
+        //
+        $.each(productosCarrito, function(){
+            strHTMLtabla += '<tr>' + 
+                                '<td class="first-column" style="padding-top: 0; padding-bottom: 0;" >' + '<img style="width:104px" src="'+ this.nombreurlimg +'" />' +'</td>' +
+                                '<td class="pro-price">'+ this.nomProducto +' x '+ this.cantidad +'</td>' +
+                                '<td class="pro-price">'+ 'S./ ' + this.ventasoles.toFixed(2) + ' ( $' + this.ventadolares.toFixed(2) +')' +'</td>' +
+                            '</tr>';
 
+        });
+        $('#tbProductosDetalle tbody').append(strHTMLtabla);
         $('#modalDetalleProductos').modal('show');
     }
 
     function registrarPedidoFinal(){
 
-        var nombresolic = $('#txtnombresolic').val();
-        var apellidosolic = $('#txtapellidosolic').val();
-        var correosolic = $('#txtcorreosolic').val();
-        var celularsolic = $('#txtcelularsolic').val();
-        var personadirecc = $('#txtpersonadirecc').val();
-        var telefdirecc = $('#txttelcontdirecc').val();
-        var direcciondirecc = $('#txtdirecciondirecc').val();
-        var refdirecc = $('#txtreferenciadirecc').val();
+        // var nombresolic = $('#txtnombresolic').val();
+        // var apellidosolic = $('#txtapellidosolic').val();
+        // var correosolic = $('#txtcorreosolic').val();
+        // var celularsolic = $('#txtcelularsolic').val();
+        // var personadirecc = $('#txtpersonadirecc').val();
+        // var telefdirecc = $('#txttelcontdirecc').val();
+        // var direcciondirecc = $('#txtdirecciondirecc').val();
+        // var refdirecc = $('#txtreferenciadirecc').val();
+
+
+    //////////////DATOS DE PRUEBA /////////////////////////
+    $('#txtnombresolic').val('Jorgito');
+        $('#txtapellidosolic').val('Paz C');
+        $('#txtcorreosolic').val('stwtml@gmail.com');
+        $('#txtcelularsolic').val('987654321');
+
+        //datos direccion
+        $('#txtdirecciondirecc').val('Mz A Lt 14 Asoc Virgen del Rosario');
+        $('#txtpersonadirecc').val('Rodolfo R. A');
+        $('#txtreferenciadirecc').val('Cruce universitaria con micaela');
+        $('#txttelcontdirecc').val('999999999');
+        //////
+
         var latitud = mapa.getCenter().lat();
         var longitud =mapa.getCenter().lng();
         //
         var textoesrequerido = null;
+        //
+        var validaformulario = true;
         $.each($('#regForm').find('input'),function(){
             // console.log(this);
             textoesrequerido =  $(this).attr('requerido');
             var labelerror = $(this).parent();
             //
-            console.log("->", textoesrequerido);
-            
+            // console.log("->", textoesrequerido);
             if ($(this).val() == "") {
                 if(textoesrequerido == "SI"){
                     labelerror.find('label').eq(1).removeAttr('hidden');
+                    validaformulario = false;
                 }
 
                 if(textoesrequerido == "NO"){
@@ -369,17 +400,121 @@
                 }
 
             }else{
-           
                 labelerror.find('label').eq(1).prop('hidden',true);
-               
             }
-         
         });
+        //
+        console.log("validaformulario-->", validaformulario);
+        //  console.log(latitud, longitud)
 
-         console.log(latitud, longitud)
+        //datos persona
+        var nombres;
+        var apellidos;
+        var correo;
+        var celular;
 
+        //datos direccion
+        var direccion;
+        var persona_recepciona;
+        var lugar_referencia;
+        var latitudPedido;
+        var longitudPedido;
+        var telefono_contacto;
+        
+        //datos pedido
+        var costototalsoles;
+        var costototaldolares;
+        var tipocambio;
+        var cantidadProductos = 0;
+        if(validaformulario){ //validó el formaulario correctamente
+            $('#btnRegistrarpedido').attr('disabled','disabled');
+            $('#btnRegistrarpedido').css({
+                'opacity' : '0.4',
+                'cursor': 'not-allowed'
+            });
+            //
+            nombres = $('#txtnombresolic').val();
+            apellidos = $('#txtapellidosolic').val();
+            correo = $('#txtcorreosolic').val();
+            celular = $('#txtcelularsolic').val();
 
+            //datos direccion
+            direccion =  $('#txtdirecciondirecc').val();
+            persona_recepciona = $('#txtpersonadirecc').val();
+            lugar_referencia = $('#txtreferenciadirecc').val();
+            latitudPedido = latitud;
+            longitudPedido = longitud;
+            telefono_contacto = $('#txttelcontdirecc').val();
+            
+            //datos pedido
+            costototalsoles = 0;
+            costototaldolares = 0;
+            tipocambio = 3.9;
 
+            //serializado detllae
+            var strDetalleSerializado = '';
+            var datacarritocompra = JSON.parse(getLocalDataCarrito());
+            //
+            $.each(datacarritocompra, function(){
+                strDetalleSerializado += this.idproducto + '|' + this.cantidad  + '|' +  this.ventadolares.toFixed(2) + '|' + this.ventasoles.toFixed(2) + '|' + this.nomProducto +'|' + this.marca + '|' +  'descripción del producto' + '~';
+                cantidadProductos +=  this.cantidad ;
+                costototalsoles += this.ventadolares;
+                costototaldolares += this.ventasoles;
+            });
+            //
+            strDetalleSerializado = strDetalleSerializado.substr(0, strDetalleSerializado.length -1);
+            //
+            var dataPedido = {
+                datoscliente : nombres + '|' + apellidos + '|' + correo + '|' + celular,
+                datosdireccion : direccion + '|' + persona_recepciona + '|' + lugar_referencia + '|' +  latitudPedido + '|' + longitudPedido + '|' + telefono_contacto,
+                datospedido : cantidadProductos + '|' +  costototaldolares.toFixed(2) + '|' + costototalsoles.toFixed(2) + '|' + tipocambio.toFixed(2),
+                datosPedidoDetalle : strDetalleSerializado
+            }
+            //
+            var URL_REGISTRA_PEDIDO =  URL_BASE + 'Registros/procRegistraPedido';
+            //
+   
+            $.post(URL_REGISTRA_PEDIDO, dataPedido, function (rpta) {
+                console.log("data productos", rpta);
+                $('#btnRegistrarpedido').removeAttr('disabled');
+                $('#btnRegistrarpedido').css({
+                    'opacity' : '1',
+                    'cursor': 'pointer'
+                });
+
+                var codResultado =Number(rpta["CodResultado"]);
+                var desResultado = rpta["DesResultado"];
+                var codAuxiliar =  rpta["CodAuxiliar"];
+                
+                //
+                if(codResultado == 0){
+                    Swal.fire({
+                        icon:  (codResultado == 1 ?  'success' : 'error' ),
+                        title: desResultado,
+                        showConfirmButton: false,
+                        timer: 3000
+                    });
+                }else{
+                    limpiarCarritoCompras();
+                    Swal.fire({
+                        title: '<strong>Información </strong>',
+                        icon: 'info',
+                        html:
+                            'Su pedido fué registrado correctamente con el código <h2>P00000'+ codAuxiliar +' .</h2>',
+                        showCloseButton: true,
+                        showCancelButton: false,
+                        focusConfirm: false,
+                        confirmButtonText:
+                            '<i class="fa fa-thumbs-up"></i> Ok!',
+                        confirmButtonAriaLabel: 'Thumbs up, great!',
+                    }).then((result) => {
+                        window.location.replace(URL_BASE);
+                    });
+                }
+
+            },"JSON");
+
+        }
     }
 
     function validarFormulariopedido(){

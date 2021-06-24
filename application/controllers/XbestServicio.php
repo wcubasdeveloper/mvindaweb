@@ -12,8 +12,6 @@ class  XbestServicio extends CI_Controller {
       $this->load->model('general_model');
     }
 
-
-   
     public function getProductosByLike(){
         $nombre = $this->input->post('nombreproducto');
         $host = "http://abexacloud.com/ApiXbest/api/getProductosByLike";
@@ -29,11 +27,12 @@ class  XbestServicio extends CI_Controller {
             'content' => '{ "parametro" : "'.$nombre.'" }'
             )
         );
+        //
         $context  = stream_context_create($options);
         $json_response = file_get_contents($host, false, $context);
         //$response = json_decode($json_response, true);
         //header('Content-Type: application/json');
-        echo $json_response;     
+        echo $json_response;
     }
 
 
@@ -81,7 +80,6 @@ class  XbestServicio extends CI_Controller {
         echo $json_response;     
     }
 
-
     public function getProductosByCategoria(){
         $codCategoria = $this->input->post('codcategoria');
         $host = "http://abexacloud.com/ApiXbest/api/GetProductosActivos";
@@ -102,26 +100,51 @@ class  XbestServicio extends CI_Controller {
         //$response = json_decode($json_response, true);
         //header('Content-Type: application/json');
         echo $json_response;
+    }
 
+
+    public function getProductosByCategoriaMult(){
+        $codCategoria = $this->input->post('codcategorias');
+        $host = "http://abexacloud.com/ApiXbest/api/getProductosMultipleCat";
+        $user_name = 'ABEXA';
+        $password = '4B3XA2021';
         
-        //var_dump($json_response);
-        exit();
+        $options = array('http' =>
+        array(
+            'method'  => 'POST',
+            'header'  => "Content-type: application/json" . PHP_EOL
+                       . "Accept: application/json" . PHP_EOL
+                       . "Authorization: Basic " . base64_encode("$user_name:$password"),
+            'content' => '{ "parametro" : "'.$codCategoria.'" }'
+            )
+        );
+        $context  = stream_context_create($options);
+        $json_response = file_get_contents($host, false, $context);
+        //$response = json_decode($json_response, true);
+        //header('Content-Type: application/json');
+        echo $json_response;
+    }
 
-        $curl = curl_init();
-        curl_setopt($curl, CURLOPT_URL,"http://abexacloud.com/ApiXbest/api/
-        ?parametro=1");
-        curl_setopt($curl, CURLOPT_POST, 1);
-        curl_setopt($curl, CURLOPT_USERPWD, "ABEXA" . ":" . "4B3XA2021");
-        curl_setopt($curl, CURLOPT_POSTFIELDS, json_encode(array()));
-       // curl_setopt($curl, CURLOPT_POSTFIELDS, "rucEmpresa=".$ruc);
-        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-        $respuesta = curl_exec($curl); //viene un array
-
-        var_dump($respuesta);
-        //$respuesta = json_decode($respuesta, true); //convierte array normal
-        // var_dump($respuesta);
-        // return $respuesta;
-        echo $respuesta;
+    public function getTipoCambio(){
+        $codCategoria = $this->input->post('codcategorias');
+        $host = "http://abexacloud.com/ApiXbest/api/getTipoCambio";
+        $user_name = 'ABEXA';
+        $password = '4B3XA2021';
+        
+        $options = array('http' =>
+        array(
+            'method'  => 'POST',
+            'header'  => "Content-type: application/json" . PHP_EOL
+                       . "Accept: application/json" . PHP_EOL
+                       . "Authorization: Basic " . base64_encode("$user_name:$password"),
+            'content' => '{ "parametro" : "'.$codCategoria.'" }'
+            )
+        );
+        $context  = stream_context_create($options);
+        $json_response = file_get_contents($host, false, $context);
+        //$response = json_decode($json_response, true);
+        //header('Content-Type: application/json');
+        echo $json_response;
     }
 
     public function getCategorias(){
