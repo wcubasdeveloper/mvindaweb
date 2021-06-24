@@ -9,7 +9,7 @@
                         <div class="col-md-12 col-lg-12 mb-md-30px mb-lm-30px" >
                             <div class="footer-logo">
                                 <!-- <a href="#index.html"> -->
-                                    <!-- <img class="img-responsive" src="<?=base_url()?>assets/images/logo_blanco.png" alt="logo.jpg" /> -->
+                                    <img class="img-responsive" src="<?=base_url()?>assets/images/logo_blanco.png" alt="logo.jpg" />
                                 <!-- </a> -->
                             </div>
                         </div>

@@ -1,4 +1,35 @@
         
+        <style>
+        
+        
+#fb-share-button {
+    background: #4381fffa;
+    border-radius: 3px;
+    font-weight: 600;
+    padding: 0px 9px;
+    display: inline-block;
+    position: static;
+}
+
+#fb-share-button:hover {
+    cursor: pointer;
+    background: #213A6F
+}
+
+#fb-share-button svg {
+    width: 18px;
+    fill: white;
+    vertical-align: middle;
+    border-radius: 2px
+}
+
+#fb-share-button span {
+    vertical-align: middle;
+    color: white;
+    font-size: 14px;
+    padding: 0 3px
+}
+        </style>
         <!-- News letter area  End -->
         <div id="fb-root"></div>
         <script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v11.0&appId=3058970330780590&autoLogAppEvents=1" nonce="RV39vIoK"></script>
@@ -62,13 +93,16 @@
                                                 <img title="Compartir en facebook" style="width: 38px;cursor:pointer" src="https://images.vexels.com/media/users/3/223136/isolated/preview/984f500cf9de4519b02b354346eb72e0-facebook-icon-redes-sociales-by-vexels.png" />
                                             </li> -->
                                             <li id="social_facebook">
-                                                <div class="social_action">
-                                                    <div class="fb-share-button" 
-                                                    data-size="large" 
-                                                    data-href="https://www.w3schools.com/w3css/w3css_modal.asp" 
-                                                    data-type="button"></div>
+                                               
+                                                <div id="fb-share-button" onclick="compartirProducto(event);" >
+                                                    <svg style="padding-top: 6px;float: left;" viewBox="0 0 12 12" preserveAspectRatio="xMidYMid meet">
+                                                        <path class="svg-icon-path" d="M9.1,0.1V2H8C7.6,2,7.3,2.1,7.1,2.3C7,2.4,6.9,2.7,6.9,3v1.4H9L8.8,6.5H6.9V12H4.7V6.5H2.9V4.4h1.8V2.8 c0-0.9,0.3-1.6,0.7-2.1C6,0.2,6.6,0,7.5,0C8.2,0,8.7,0,9.1,0.1z"></path>
+                                                    </svg>
+                                                    <span>Compartir</span>
                                                 </div>
+
                                             </li>
+                                            
                                         </ul>
                                     </div>
                                 </div>
@@ -89,13 +123,28 @@
     var URL_BASE = '<?=base_url()?>';
     var codproducto = '<?=$codproducto?>';
     var itemProducto = null;
+
     //
+
     $(document).ready(function () {
         // getproductosBusqueda();
         // $('#txtbusquedaproducto').val(terminoBusqueda);
         mostrarProductosEnOferta();
     });
     
+
+    function compartirProducto(e){
+        var url = "http://www.mvinda.com/Web/DetalleProducto/?codigoProducto=130";
+        window.open('https://www.facebook.com/sharer/sharer.php?u=' + url,
+            'facebook-share-dialog',
+            'width=800,height=600'
+        );
+        return false;
+
+
+
+    }
+
     var URL_IMG_ZOOM = null;
     function mostrarProductosEnOferta(){
         //$('#sectionOfertas').empty();
@@ -141,7 +190,8 @@
                 // $('.imagenproductopequenio').attr('data-image',urlimagen)
                 // $('.imagenproductopequenio').attr('data-zoom-image',urlimagen)
                 // $('.imagenproductopequenio').attr('src',urlimagen)
-
+                
+                $('#imagenproductodetalle').attr('src','http://www.abexacloud.com/XBest/Adjunto/imagenproducto/20602732402/imgproducto_2622.jpg')
                 // $('.imagenproducto').attr('data-zoom-image',urlimagen)
                 $('#fotoproducto').attr('src',urlimagen);
                 URL_IMG_ZOOM = urlimagen;
