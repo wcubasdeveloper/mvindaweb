@@ -324,7 +324,7 @@
                 <!-- Header Logo Start -->
                 <div class="col">
                     <div class="header-logo">
-                        <a href="#index.html"><img class="img-responsive" src="<?=base_url()?>assets/images/Logo.png" alt="logo.jpg" /></a>
+                        <!-- <a href="#index.html"><img class="img-responsive" src="<?=base_url()?>assets/images/Logo.png" alt="logo.jpg" /></a> -->
                     </div>
                 </div>
                 <!-- Header Logo End -->
