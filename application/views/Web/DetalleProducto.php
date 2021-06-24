@@ -1,10 +1,7 @@
         
-
-
         <!-- News letter area  End -->
         <div id="fb-root"></div>
         <script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v11.0&appId=3058970330780590&autoLogAppEvents=1" nonce="RV39vIoK"></script>
-
 
        <!-- Shop details Area start -->
          <section class="product-details-area mtb-60px ">
@@ -92,12 +89,13 @@
     var URL_BASE = '<?=base_url()?>';
     var codproducto = '<?=$codproducto?>';
     var itemProducto = null;
+    //
     $(document).ready(function () {
         // getproductosBusqueda();
         // $('#txtbusquedaproducto').val(terminoBusqueda);
         mostrarProductosEnOferta();
     });
-
+    
     var URL_IMG_ZOOM = null;
     function mostrarProductosEnOferta(){
         //$('#sectionOfertas').empty();
@@ -119,7 +117,7 @@
                 var codmoneda = rpta[0]["CodMoneda"];
                 var urlproducto = rpta[0]["UrlImagen"];
                 //
-              
+                $('title').text(nombreProducto)
                 //
                 var precio_venta_soles = (codmoneda == 1 ? precioVenta : (precioVenta * COSTO_DOLAR_HOY) );
                 var precio_venta_dolares = (codmoneda == 2 ? precioVenta : (precioVenta/COSTO_DOLAR_HOY) );
