@@ -94,12 +94,14 @@
                                             </li> -->
                                             <li id="social_facebook">
                                                
-                                                <div id="fb-share-button" onclick="compartirProducto(event);" >
+                                                <!-- <div id="fb-share-button" onclick="compartirProducto(event);" >
                                                     <svg style="padding-top: 6px;float: left;" viewBox="0 0 12 12" preserveAspectRatio="xMidYMid meet">
                                                         <path class="svg-icon-path" d="M9.1,0.1V2H8C7.6,2,7.3,2.1,7.1,2.3C7,2.4,6.9,2.7,6.9,3v1.4H9L8.8,6.5H6.9V12H4.7V6.5H2.9V4.4h1.8V2.8 c0-0.9,0.3-1.6,0.7-2.1C6,0.2,6.6,0,7.5,0C8.2,0,8.7,0,9.1,0.1z"></path>
                                                     </svg>
                                                     <span>Compartir</span>
-                                                </div>
+                                                </div> -->
+
+                                                <a href="#" data-type="facebook" data-url="http://www.mvinda.com/Web/DetalleProducto/?codigoProducto=122" data-title="Mvinda S.A.C." data-description="Monitor LG de 40 pulgadas." data-media="http://www.abexacloud.com/XBest/Adjunto/imagenproducto/20602732402/imgproducto_122.png" class="prettySocial fa fa-facebook"></a>
 
                                             </li>
                                             
@@ -119,6 +121,8 @@
                 </div>
             </section>
 
+            <script src="http://sonnyt.com/prettySocial/jquery.prettySocial.min.js"></script>
+
 <script>
     var URL_BASE = '<?=base_url()?>';
     var codproducto = '<?=$codproducto?>';
@@ -135,13 +139,31 @@
 
     function compartirProducto(e){
         var url = "http://www.mvinda.com/Web/DetalleProducto/?codigoProducto=122";
-        window.open('https://www.facebook.com/sharer/sharer.php?u=' + url,
-            'facebook-share-dialog',
-            'width=800,height=600'
-        );
+        // window.open('https://www.facebook.com/sharer/sharer.php?u=' + url,
+        //     'facebook-share-dialog',
+        //     'width=800,height=600'
+        // );
+       
+
+
+        //$('img').click(function(){
+            var $this = $(this);
+            var obj = {
+                
+            method: 'feed',
+            link: url,
+            picture: 'http://www.abexacloud.com/XBest/Adjunto/imagenproducto/20602732402/imgproducto_122.png',
+            name: "este es el titulo",
+            caption: 'Your cdescripcion here',
+            description: 'Your description here.'
+            };
+            function callback(response) {
+                alert( "Post ID: " + response['post_id']);
+            }
+
+            FB.ui(obj,callback);
+        //});
         return false;
-
-
 
     }
 
@@ -194,6 +216,9 @@
                 $('#imagenproductodetalle').attr('src',urlimagen);
                 // $('.imagenproducto').attr('data-zoom-image',urlimagen)
                 $('#fotoproducto').attr('src',urlimagen);
+
+                $('.prettySocial').prettySocial();
+
                 URL_IMG_ZOOM = urlimagen;
                 // console.log("nombreProducto", nombreProducto)
                 // console.log("url----->", URL_IMG_ZOOM);

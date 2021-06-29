@@ -21,9 +21,46 @@ class User extends CI_Controller {
     $this->load->model('user_model');
     $this->load->model('cliente_model');
     $this->load->model('General_model');
-    $this->load->library('email');
+    // $this->load->library('email');
 
   }
+
+  function sendMail()
+  {
+    $config = Array(
+      'protocol' => 'smtp',
+      'smtp_host' => 'mail.supremecluster.com',
+      'smtp_port' => 25,
+      'smtp_user' => 'sistema@mvinda.com', // change it to yours
+      'smtp_pass' => 'Mvinda123@123', // change it to yours
+      'mailtype' => 'html',
+      'charset' => 'utf-8',
+      'wordwrap' => TRUE
+    );
+    //
+    $message = "hola";
+    $this->load->library('email', $config);
+    $this->email->set_newline("\r\n");
+    $this->email->from('sistema@mvinda.com'); // change it to yours
+    $this->email->to('stwtml@gmail.com');// change it to yours
+    $this->email->subject('Titulo del mensaje');
+    // $this->email->message($message);
+    $data["name"]  = "holaaa";
+    // echo $this->load->view('/user/template',$data, true);
+    // exit();
+    $this->email->message($this->load->view('/user/template',$data, true));
+
+
+    if($this->email->send())
+    {
+    echo 'Email sent.';
+    }
+    else
+    {
+     show_error($this->email->print_debugger());
+    }
+  }
+
 
   public function login() {
   //$data["contenido"] = "About My Website.......";

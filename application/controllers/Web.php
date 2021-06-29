@@ -56,6 +56,28 @@ class Web extends CI_Controller {
     $this->load->view('/_footermvindaweb');
   }
 
+
+  public function TerminosYCondiciones(){
+
+    // $getImagenSlider = $this->general_model->ProcSQL("call ProcSlider('',10);"); 
+    // $datos["imgslider"] = $getImagenSlider;
+    //
+    $datos["termbusqueda"] = '';
+    $this->load->view('/_layoumvindaweb');
+    $this->load->view('/_headermvinweb', $datos);
+    $this->load->view('Web/TerminosYCondiciones');
+    $this->load->view('/_footermvindaweb');
+  }
+
+  public function NuestraEmpresa(){
+
+    $datos["termbusqueda"] = '';
+    $this->load->view('/_layoumvindaweb');
+    $this->load->view('/_headermvinweb', $datos);
+    $this->load->view('Web/NuestraEmpresa');
+    $this->load->view('/_footermvindaweb');
+  }
+
   public function ProductosByCategoria(){
     $serializadocategoria =  $_GET["c"];
     $porcionesdata = explode("|", $serializadocategoria);

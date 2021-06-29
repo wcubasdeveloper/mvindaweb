@@ -597,7 +597,7 @@
                                 '<article class="list-product text-center">' +
                                     '<div class="product-inner">' +
                                         '<div class="img-block">' +
-                                            '<a href="'+ URL_BASE + 'Web/DetalleProducto/?codigoProducto=' + codigoProducto +'" class="thumbnail">' +
+                                            '<a href="'+ URL_BASE + 'Web/DetalleProducto/?codigoProducto=' + codigoProducto +'"  target="_blank" class="thumbnail">' +
                                                  ( urlimagenuno.length == 0 ? '<img class="first-img" src="<?=base_url()?>assets/abelostyle/assets/images/product-image/4.jpg" alt="" />' : '<img class="first-img" src="http://www.abexacloud.com/XBest/Adjunto/imagenproducto/20602732402/'+ urlimagenuno +'" alt="" />' ) +
                                             '</a>' +
                                             '<div class="add-to-link">' +
@@ -643,7 +643,7 @@
                                             '</div>' +
                                         '</div>' +
                                         '<div class="cart-btn">' +
-                                            '<a href="'+ URL_BASE + 'Web/DetalleProducto/?codigoProducto=' + codigoProducto +'" class="add-to-curt" title="Ver producto ">Ver Producto</a>' +
+                                            '<a href="'+ URL_BASE + 'Web/DetalleProducto/?codigoProducto=' + codigoProducto +'" target="_blank" class="add-to-curt" title="Ver producto ">Ver Producto</a>' +
                                         '</div>' +
                                     '</div>' +
                                 '</article>' +
@@ -810,7 +810,7 @@
                                 '</div>' +
                                 '<div class="product-decs">' +
                                     '<a class="inner-link" href="#shop-4-column.html"><span>'+ marca + ' - ' + categoriaproducto +'</span></a>' +
-                                    '<h2><a href="'+ URL_BASE + 'Web/DetalleProducto/?codigoProducto=' + codigoProducto +'" class="product-link">'+ nombreproducto +'</a></h2>' +
+                                    '<h2><a href="'+ URL_BASE + 'Web/DetalleProducto/?codigoProducto=' + codigoProducto +'" target="_blank" class="product-link">'+ nombreproducto +'</a></h2>' +
                                     '<div class="availability-list in-stock">Disponible: <span>'+ stockalmacen +' en stock</span></div>' +
                                     '<p>'+ caracteristicas +'</p>' +
                                     '<div class="pricing-meta">' +
@@ -1127,7 +1127,7 @@
                                 '<article class="list-product text-center">' +
                                     '<div class="product-inner">' +
                                         '<div class="img-block">' +
-                                            '<a href="'+ URL_BASE + 'Web/DetalleProducto/?codigoProducto=' + codigoProducto +'" class="thumbnail">' +
+                                            '<a href="'+ URL_BASE + 'Web/DetalleProducto/?codigoProducto=' + codigoProducto +'" target="_blank" class="thumbnail">' +
                                                  ( urlimagenuno.length == 0 ? '<img class="first-img" src="<?=base_url()?>assets/abelostyle/assets/images/product-image/4.jpg" alt="" />' : '<img class="first-img" src="http://www.abexacloud.com/XBest/Adjunto/imagenproducto/20602732402/'+ urlimagenuno +'" alt="" />' ) +
                                             '</a>' +
                                             '<div class="add-to-link">' +
@@ -1173,7 +1173,7 @@
                                             '</div>' +
                                         '</div>' +
                                         '<div class="cart-btn">' +
-                                            '<a href="'+ URL_BASE + 'Web/DetalleProducto/?codigoProducto=' + codigoProducto +'" class="add-to-curt" title="Ver producto ">Ver Producto</a>' +
+                                            '<a href="'+ URL_BASE + 'Web/DetalleProducto/?codigoProducto=' + codigoProducto +'" target="_blank" class="add-to-curt" title="Ver producto ">Ver Producto</a>' +
                                         '</div>' +
                                     '</div>' +
                                 '</article>' +

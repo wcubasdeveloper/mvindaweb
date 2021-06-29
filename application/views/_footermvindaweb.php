@@ -32,11 +32,11 @@
                                 <h4 class="footer-herading">Información</h4>
                                 <div class="footer-links">
                                     <ul >
-                                        <li><a style="color:white"  href="##">Delivery y política de envio</a></li>
-                                        <li><a style="color:white"  href="#about.html">Nuestra empresa</a></li>
-                                        <li><a style="color:white"  href="##">Contáctanos</a></li>
-                                        <li><a style="color:white"  href="##">Terminos y condiciones</a></li>
-                                        <li><a style="color:white"  href="##">Libro de reclamaciones</a></li>
+                                        <!-- <li><a style="color:white"  href="##">Delivery y política de envio</a></li> -->
+                                        <li><a style="color:white"  href="<?=base_url()?>Web/NuestraEmpresa" >Nuestra empresa</a></li>
+                                        <!-- <li><a style="color:white"  href="##">Contáctanos</a></li> -->
+                                        <li><a style="color:white" href="<?=base_url()?>Web/TerminosYCondiciones" >Terminos y condiciones</a></li>
+                                        <!-- <li><a style="color:white"  href="##">Libro de reclamaciones</a></li> -->
                                     </ul>
                                 </div>
                             </div>

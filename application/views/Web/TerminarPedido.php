@@ -364,8 +364,8 @@
         // var refdirecc = $('#txtreferenciadirecc').val();
 
 
-    //////////////DATOS DE PRUEBA /////////////////////////
-    $('#txtnombresolic').val('Jorgito');
+    //////////////  DATOS DE PRUEBA /////////////////////////
+        $('#txtnombresolic').val('Jorgito');
         $('#txtapellidosolic').val('Paz C');
         $('#txtcorreosolic').val('stwtml@gmail.com');
         $('#txtcelularsolic').val('987654321');
@@ -375,7 +375,7 @@
         $('#txtpersonadirecc').val('Rodolfo R. A');
         $('#txtreferenciadirecc').val('Cruce universitaria con micaela');
         $('#txttelcontdirecc').val('999999999');
-        //////
+    //////
 
         var latitud = mapa.getCenter().lat();
         var longitud =mapa.getCenter().lng();
@@ -468,7 +468,10 @@
                 datoscliente : nombres + '|' + apellidos + '|' + correo + '|' + celular,
                 datosdireccion : direccion + '|' + persona_recepciona + '|' + lugar_referencia + '|' +  latitudPedido + '|' + longitudPedido + '|' + telefono_contacto,
                 datospedido : cantidadProductos + '|' +  costototaldolares.toFixed(2) + '|' + costototalsoles.toFixed(2) + '|' + tipocambio.toFixed(2),
-                datosPedidoDetalle : strDetalleSerializado
+                datosPedidoDetalle : strDetalleSerializado,
+                nomcli : nombres + ' ' + apellidos,
+                correocli : correo,
+                numcelcli : celular
             }
             //
             var URL_REGISTRA_PEDIDO =  URL_BASE + 'Registros/procRegistraPedido';
@@ -482,9 +485,9 @@
                     'cursor': 'pointer'
                 });
 
-                var codResultado =Number(rpta["CodResultado"]);
+                var codResultado = Number(rpta["CodResultado"]);
                 var desResultado = rpta["DesResultado"];
-                var codAuxiliar =  rpta["CodAuxiliar"];
+                var codAuxiliar  =  rpta["CodAuxiliar"];
                 
                 //
                 if(codResultado == 0){
@@ -499,8 +502,8 @@
                     Swal.fire({
                         title: '<strong>Información </strong>',
                         icon: 'info',
-                        html:
-                            'Su pedido fué registrado correctamente con el código <h2>P00000'+ codAuxiliar +' .</h2>',
+                        html:desResultado,
+                            // 'Su pedido fué registrado correctamente con el código <h2>P00000'+ codAuxiliar +' .</h2>',
                         showCloseButton: true,
                         showCancelButton: false,
                         focusConfirm: false,

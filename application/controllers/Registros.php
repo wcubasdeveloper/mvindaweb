@@ -49,10 +49,87 @@ public function procGeneralWebHook(){
     $paramDireccion = $this->input->post('datosdireccion'); //cambiar por post
     $paramPedido = $this->input->post('datospedido'); //cambiar por post
     $paramPedidoDetalle = $this->input->post('datosPedidoDetalle'); //cambiar por post
+    //
+    $nomcliente  =  $this->input->post('nomcli'); //cambiar por post
+    $correocliente =  $this->input->post('correocli'); //cambiar por post
+    $numcelularcli =  $this->input->post('numcelcli'); //cambiar por post
 
     $resultado = $this->general_model->ProcPedidoTran($paramCliente, $paramDireccion, $paramPedido, $paramPedidoDetalle);
+    //
+   
+
+    $codigoResultado = (int)$resultado["CodResultado"];
+    $codigoPedidoGenerado = "";
+    $resultadoenviocorreo = false;
+    //
+    if($codigoResultado  == 1){ //si fue exitoso
+     
+      $codigoPedidoGenerado = $resultado["CodAuxiliar"];
+      
+      $resultadoenviocorreo = $this->enviarCorreoConfirmacion($nomcliente, $codigoPedidoGenerado, $correocliente,  $numcelularcli);
+     
+      if($resultadoenviocorreo){ //si se envio el correo correctamente
+        $resultado["DesResultado"] .= ", y se envió un mensaje a ". $correocliente . ' confirmando el registro del pedido.';
+      }else{
+        $resultado["DesResultado"] .= ",<h2>no se pudo enviar el correo de confirmación a ". $correocliente . '  </h2> verifique si el correo es válido.';
+      }      
+    }
+   
+  
     echo json_encode($resultado);
   }
+
+  public function enviarCorreoConfirmacion($nombrecliente, $codigoPedido, $correocliente, $numeroCelular)
+  {
+   
+
+    $enviocorreo = false;
+
+    $config = Array(
+      'protocol' => 'smtp',
+      'smtp_host' => 'mail.supremecluster.com',
+      'smtp_port' => 25,
+      'smtp_user' => 'sistema@mvinda.com', // change it to yours
+      'smtp_pass' => 'Mvinda123@123', // change it to yours
+      'mailtype' => 'html',
+      'charset' => 'utf-8',
+      'wordwrap' => TRUE
+    );
+    //
+
+
+    $message = "hola";
+    $this->load->library('email', $config);
+    $this->email->set_newline("\r\n");
+    $this->email->from('sistema@mvinda.com'); // change it to yours
+    $this->email->to($correocliente);// change it to yours
+    $this->email->subject('[Mvinda S.A.C] Confirmación del pedido '.$codigoPedido);
+    // $this->email->message($message);
+    $data["nombrecliente"]  = $nombrecliente;
+    $data["codigopedido"]  = $codigoPedido;
+    $data["celular"]  = $numeroCelular;
+
+   
+  
+    $this->email->message($this->load->view('/Registros/emailconfirmapedido',$data, true));
+
+
+    if($this->email->send())
+    {
+    // echo 'Email sent.';
+      $enviocorreo = true;
+    }
+    else
+    {
+      $enviocorreo = false;
+    //  show_error($this->email->print_debugger());
+    }
+
+    return $enviocorreo;
+  }
+
+
+
 
 
   public function producto($Titulo){

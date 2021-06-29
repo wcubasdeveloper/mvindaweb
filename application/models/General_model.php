@@ -174,7 +174,7 @@ class General_model extends CI_Model {
 				}
 			}
 			//
-			$Query = 'SELECT 1 AS CodResultado, "Registró con exito, sucodigo de pedido es : ' . $codPedido . '" AS DesResultado, ' . $codPedido . ' AS CodAuxiliar;';
+			$Query = 'SELECT 1 AS CodResultado, "Su pedido fué registrado correctamente con el código : <h2>P' . $codPedido . '</h2>" AS DesResultado, ' . $codPedido . ' AS CodAuxiliar;';
 			$Respuesta = mysqli_query($link, $Query);
 			$Resultado = mysqli_fetch_assoc($Respuesta);
 			//
