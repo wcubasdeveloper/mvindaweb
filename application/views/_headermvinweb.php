@@ -555,8 +555,6 @@
     var URL_BASE = '<?=base_url()?>';
 
     $(document).ready(function () {
-
-        //
         getCategorias();
         activarBusqueda();
         activarbusquedamovil();
@@ -584,7 +582,7 @@
                 if(request.term.length >= 4){ //si el tecleado es igual o mayor a 4 caracteres
                     $(".ui-menu-item").empty();
                     var parametros = request.term + '|' + 0;
-                    var URL_GET_PRODUCTOS = "<?php echo base_url()."XbestServicio/getProductosByLike" ?>";
+                    var URL_GET_PRODUCTOS = "XbestServicio/getProductosByLike";
                     $.post(URL_GET_PRODUCTOS,
                     {
                         nombreproducto: parametros
@@ -674,7 +672,7 @@
                 if(request.term.length >= 4){ //si el tecleado es igual o mayor a 4 caracteres
                     $(".ui-menu-item").empty();
                     var parametros = request.term + '|' + 1;
-                    var URL_GET_PRODUCTOS = "<?php echo base_url()."XbestServicio/getProductosByLike" ?>";
+                    var URL_GET_PRODUCTOS = "XbestServicio/getProductosByLike";
                     $.post(URL_GET_PRODUCTOS,
                     {
                         nombreproducto: parametros
@@ -918,7 +916,7 @@
         $('#categoriaMovil').empty();
         $('#categoriaslink').empty();
         //
-        var URL_GET_CATEGORIA = "<?php echo base_url()."XbestServicio/getCategorias" ?>";
+        var URL_GET_CATEGORIA = "XbestServicio/getCategorias";
         var data = { };
         //
         var strHTMLoption = "";

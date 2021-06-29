@@ -27,7 +27,9 @@
         <!-- <link rel="stylesheet" href="assets/css/vendor/vendor.min.css" />
         <link rel="stylesheet" href="assets/css/plugins/plugins.min.css" />
         <link rel="stylesheet" href="assets/css/style.min.css"> -->
-
+        
+        <link rel="stylesheet" href="<?=base_url()?>assets/abelostyle/assets/css/vendor/ionicons.min.css">
+        <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css" >
         <!-- Main Style CSS -->
         <link rel="stylesheet" href="<?=base_url()?>assets/abelostyle/assets/css/style.css" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
