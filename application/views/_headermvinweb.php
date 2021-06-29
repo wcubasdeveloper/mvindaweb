@@ -916,7 +916,7 @@
         $('#categoriaMovil').empty();
         $('#categoriaslink').empty();
         //
-        var URL_GET_CATEGORIA = "XbestServicio/getCategorias";
+        var URL_GET_CATEGORIA = URL_BASE +"/XbestServicio/getCategorias";
         var data = { };
         //
         var strHTMLoption = "";
