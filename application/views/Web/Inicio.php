@@ -551,7 +551,7 @@
 
     function getProductosByService(serializadoproductos){
         //
-        var URL_GET_PRODUCTOS = "<?php echo base_url()."XbestServicio/getProductosById" ?>";
+        var URL_GET_PRODUCTOS = "XbestServicio/getProductosById";
         var data = {
             codproductos : serializadoproductos
          };
@@ -708,7 +708,7 @@
 
     function getProductosMasVendidos(){
         //
-        var URL_GET_MASVENDIDOS = "<?php echo base_url()."XbestServicio/getProductosMasVendidos" ?>";
+        var URL_GET_MASVENDIDOS = "XbestServicio/getProductosMasVendidos";
         var data = { };
         var strHTMLoption = "";
         var strHTMLcategoriaMenu = "";
@@ -743,7 +743,7 @@
     function mostrarProductosMasVendidos(serializadoproductos){
         
         $('#sectionmasvendidos').empty();
-        var URL_GET_PRODUCTOS = "<?php echo base_url()."XbestServicio/getProductosById" ?>";
+        var URL_GET_PRODUCTOS = "XbestServicio/getProductosById";
         var data = {
             codproductos : serializadoproductos
          };
@@ -869,7 +869,7 @@
         var indice = 44;
         var nomproc = "ProcSlider";
         //
-        $.post(URL_BASE+'Registros/procGeneral', {
+        $.post('Registros/procGeneral', {
             parametros: parametros,
             indice: indice,
             nombreProcedimiento:nomproc
@@ -901,7 +901,7 @@
 
     function mostrarProductosEnOferta(serializado, dataOfertas){
         //$('#sectionOfertas').empty();
-        var URL_GET_PRODUCTOS = "<?php echo base_url()."XbestServicio/getProductosById" ?>";
+        var URL_GET_PRODUCTOS = "XbestServicio/getProductosById";
         var data = {
             codproductos : serializado
          };
@@ -1064,7 +1064,8 @@
         var parametros = '';
         var indice = 18;
         var nomproc = "MvindaProcPedido";
-        $.post(URL_BASE+'Registros/procGeneral', {
+        //
+        $.post('Registros/procGeneral', {
             parametros: parametros,
             indice: indice,
             nombreProcedimiento:nomproc
@@ -1079,7 +1080,7 @@
             strCategoriasId = strCategoriasId.substring(0, strCategoriasId.length -1);
             //
             // console.log("strCategoriasId->", strCategoriasId);            
-            var URL_GET_PROD_BY_CAT = "<?php echo base_url()."XbestServicio/getProductosByCategoriaMult" ?>";
+            var URL_GET_PROD_BY_CAT = "XbestServicio/getProductosByCategoriaMult";
             $.post(URL_GET_PROD_BY_CAT, {
                 codcategorias: strCategoriasId
             }, function (productos) {
