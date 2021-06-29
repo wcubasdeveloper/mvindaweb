@@ -51,7 +51,7 @@
             </div>
         </div>
         <div style="position: absolute; width: 9999px; visibility: hidden; display: none; max-width: none;"></div>
-    </div><a id="scrollUp" href="#" data-href="https://demo2.madrasthemes.com/electro-wide/home-v2#top" style="position: fixed; z-index: 1001; display: none;"><i class="fa fa-angle-up"></i></a>
+    </div><a id="scrollUp" href="#" data-href="https://demo2.madrasthemes.com/electro-wide/home-v2#top" style="position: fixed; z-index: 1001; display: none;"><span style="color: white;" class="lnr lnr-phone-handset"></span></a>
     <div data-tether-id="1" style="top: 0px; left: 0px; position: absolute;"></div>
 </body>
 

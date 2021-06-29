@@ -529,7 +529,7 @@ $(function() {
         Scroll Up
     --------------------- */
     $.scrollUp({
-        scrollText: '<i class="ion-android-arrow-up"></i>',
+        scrollText: '<span style="font-size: 23px; font-weight: bold;" class="lnr lnr-arrow-up"></span>',
         easingType: "linear",
         scrollSpeed: 900,
         animation: "fade",
