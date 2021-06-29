@@ -905,7 +905,7 @@
     }
 
     function tramitarPedido(){
-        var urlredirect = URL_BASE + '/Web/ResumenPedido';
+        var urlredirect = URL_BASE + 'Web/ResumenPedido';
         window.location.replace(urlredirect);
     }
 
