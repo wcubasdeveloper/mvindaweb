@@ -16,8 +16,7 @@
   ============================================ -->
         <!-- Vendor CSS (Bootstrap & Icon Font) -->
         <link rel="stylesheet" href="<?=base_url()?>assets/abelostyle/assets/css/vendor/bootstrap.min.css">
-        <link rel="stylesheet" href="<?=base_url()?>assets/abelostyle/assets/css/vendor/ionicons.min.css">
-        <link rel="stylesheet" href="<?=base_url()?>assets/abelostyle/assets/css/vendor/linearicon.css">
+       
         <link rel="stylesheet" href="<?=base_url()?>assets/abelostyle/assets/css/vendor/sofiaPro.css">
         <link rel="stylesheet" href="<?=base_url()?>assets/abelostyle/assets/css/vendor/font-awesome.min.css">
         <!-- Plugins CSS (All Plugins Files) -->
