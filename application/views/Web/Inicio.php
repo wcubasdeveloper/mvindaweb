@@ -298,8 +298,8 @@
 <script>
     var URL_BASE = '<?=base_url()?>';
     $(document).ready(function () {
-       getCategoriasView();
-       getProductosNuevos();
+       //getCategoriasView();
+       //getProductosNuevos();
     });
     //
     var ITEMPRODUCTO = {
