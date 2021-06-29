@@ -532,7 +532,7 @@
         var indice = 42;
         var nomproc = "ProcSlider";
         var URL_GET_PRODUCTOS = "XbestServicio/getCategorias";
-        $.post(URL_BASE+'Registros/procGeneral', {
+        $.post('Registros/procGeneral', {
             parametros: parametros,
             indice: indice,
             nombreProcedimiento:nomproc
