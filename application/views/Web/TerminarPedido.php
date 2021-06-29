@@ -365,16 +365,14 @@
 
 
     //////////////  DATOS DE PRUEBA /////////////////////////
-        $('#txtnombresolic').val('Jorgito');
-        $('#txtapellidosolic').val('Paz C');
-        $('#txtcorreosolic').val('stwtml@gmail.com');
-        $('#txtcelularsolic').val('987654321');
-
-        //datos direccion
-        $('#txtdirecciondirecc').val('Mz A Lt 14 Asoc Virgen del Rosario');
-        $('#txtpersonadirecc').val('Rodolfo R. A');
-        $('#txtreferenciadirecc').val('Cruce universitaria con micaela');
-        $('#txttelcontdirecc').val('999999999');
+        // $('#txtnombresolic').val('Jorgito');
+        // $('#txtapellidosolic').val('Paz C');
+        // $('#txtcorreosolic').val('stwtml@gmail.com');
+        // $('#txtcelularsolic').val('987654321');
+        // $('#txtdirecciondirecc').val('Mz A Lt 14 Asoc Virgen del Rosario');
+        // $('#txtpersonadirecc').val('Rodolfo R. A');
+        // $('#txtreferenciadirecc').val('Cruce universitaria con micaela');
+        // $('#txttelcontdirecc').val('999999999');
     //////
 
         var latitud = mapa.getCenter().lat();
