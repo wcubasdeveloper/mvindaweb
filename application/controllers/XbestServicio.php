@@ -1,4 +1,5 @@
 <?php
+header('Access-Control-Allow-Origin: *');
 header("Access-Control-Allow-Methods: GET, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type, Content-Length, Accept-Encoding");
 defined('BASEPATH') OR exit('No direct script access allowed');
