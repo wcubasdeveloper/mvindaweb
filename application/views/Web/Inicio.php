@@ -597,7 +597,7 @@
                                 '<article class="list-product text-center">' +
                                     '<div class="product-inner">' +
                                         '<div class="img-block">' +
-                                            '<a href="'+ URL_BASE + 'Web/DetalleProducto/?codigoProducto=' + codigoProducto +'"  target="_blank" class="thumbnail">' +
+                                            '<a href="Web/DetalleProducto/?codigoProducto=' + codigoProducto +'"  target="_blank" class="thumbnail">' +
                                                  ( urlimagenuno.length == 0 ? '<img class="first-img" src="<?=base_url()?>assets/abelostyle/assets/images/product-image/4.jpg" alt="" />' : '<img class="first-img" src="http://www.abexacloud.com/XBest/Adjunto/imagenproducto/20602732402/'+ urlimagenuno +'" alt="" />' ) +
                                             '</a>' +
                                             '<div class="add-to-link">' +
