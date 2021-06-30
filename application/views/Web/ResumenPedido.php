@@ -44,7 +44,7 @@
                         <h5>Subtotal <span id="lblsubtotalpagocarrito" >-</span></h5>
                       
                         <h4 class="grand-totall-title" style="padding-top: 32px;" >Total <span id="lbltotalpagocarrito">$260.00</span></h4>
-                        <a href="<?=base_url()?>Web/TerminarPedido"  >Confirmar envio</a>
+                        <a href="Web/TerminarPedido"  >Confirmar envio</a>
                     </div>
                 </div>
             </div>
