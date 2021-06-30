@@ -643,7 +643,7 @@
                                             '</div>' +
                                         '</div>' +
                                         '<div class="cart-btn">' +
-                                            '<a href="'+ URL_BASE + 'Web/DetalleProducto/?codigoProducto=' + codigoProducto +'" target="_blank" class="add-to-curt" title="Ver producto ">Ver Producto</a>' +
+                                            '<a href="Web/DetalleProducto/?codigoProducto=' + codigoProducto +'" target="_blank" class="add-to-curt" title="Ver producto ">Ver Producto</a>' +
                                         '</div>' +
                                     '</div>' +
                                 '</article>' +
