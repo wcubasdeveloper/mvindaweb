@@ -14,7 +14,8 @@
                         <!-- Left Side start -->
                         <div class="shop-tab nav d-flex">
                             <a class="active" href="#shop-1" data-toggle="tab">
-                                <i class="fa fa-th"></i>
+                             
+                                <i class="fa fa-th" aria-hidden="true"></i>
                             </a>
                             <a href="#shop-2" data-toggle="tab">
                                 <i class="fa fa-list"></i>

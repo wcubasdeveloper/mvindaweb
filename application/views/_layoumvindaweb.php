@@ -44,7 +44,8 @@
         <!-- <link rel="stylesheet" href="assets/css/vendor/vendor.min.css" />
         <link rel="stylesheet" href="assets/css/plugins/plugins.min.css" />
         <link rel="stylesheet" href="assets/css/style.min.css"> -->
-        
+        <link href="<?=base_url()?>assets/csoftcontent/font-awesome/css/font-awesome.css" rel="stylesheet">
+
         <!-- <link rel="stylesheet" href="<?=base_url()?>assets/abelostyle/assets/css/vendor/ionicons.min.css"> -->
         <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/4.5.6/css/ionicons-core.min.css" integrity="sha512-OmevVDECSDeo7M4G+Nvh0+VLVGS2XnEOkXWJcJ0TRom3GpGgc/ryQIgpRZw20mb5eR2U0sqsm33MaR8yD1zdsQ==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
         <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css" >
