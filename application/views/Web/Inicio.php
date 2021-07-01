@@ -244,19 +244,16 @@
                                     <div class="pro-details-social-info">
                                         <!-- <span style="padding-top: 4px;">Compartir</span> -->
                                         <div class="social-info">
-                                            <ul>
-                                                <li>
+                                            <ul style="display: flex;" >
+                                                <li style="display: flex" >
                                                     <!-- <img title="Compartir en facebook" style="width: 38px;cursor:pointer" src="https://images.vexels.com/media/users/3/223136/isolated/preview/984f500cf9de4519b02b354346eb72e0-facebook-icon-redes-sociales-by-vexels.png"> -->
                                                     <li id="social_facebook">
-                                                        <div class="social_action">
-                                                            <div id="btncompartirfacebook" class="fb-share-button" 
-                                                            data-size="large" 
-                                                            data-href="http://www.mvinda.com/Web/DetalleProducto/?codigoProducto=130" 
-                                                            data-type="button"></div>
-                                                        </div>
+                                                        <a href="#" id="linksharedfb" data-type="facebook" data-url="" data-title="Mvinda S.A.C." data-description="Monitor LG de 40 pulgadas." data-media="" class="prettySocial fa fa-facebook" style="width: 100%; background-color: #1877f2; color: white; padding-left: 10px; padding-right: 10px; border-radius: 5px;" >&nbsp; &nbsp;Compartir</a>
+                                                        
+                                                    </li>
 
-                                                    
-
+                                                    <li style="padding-left: 24px;" >
+                                                        <a d="linksharedWhatsapp" href="https://web.whatsapp.com:/send?text=Hola soy un mensaje" class="whatsapp" target="_blank" style="display: initial;background-color: #25d366;color: white;padding-left: 10px;font-size: 21px;padding-right: 10px;padding-top: 3px;padding-bottom: 3px;border-radius: 5px;" > <i class="fa fa-whatsapp whatsapp-icon"></i></a>
                                                     </li>
                                                 </li>
                                             </ul>
@@ -294,6 +291,7 @@
   </div>
 </div>
 
+<script src="http://sonnyt.com/prettySocial/jquery.prettySocial.min.js"></script>
 
 <script>
     var URL_BASE = '<?=base_url()?>';
@@ -372,7 +370,14 @@
         ITEMPRODUCTO.ventasoles = Number(preciosoles);
         ITEMPRODUCTO.ventadolares = Number(preciodolares); 
         //
+        $('#linksharedfb').attr('data-href',urlproductodetalle);
+        $('#linksharedfb').attr('href',urlproductodetalle);
+
+   
+        $('#linksharedWhatsapp').attr('href', "Puedes encontrar mas información del producto Aqui " + " " + urlproductodetalle);
+
         $('#modalDetalleProducto').modal('show');
+        $('.prettySocial').prettySocial();
     }
     
     function disminuyecantidadIni(elemento){
