@@ -1,5 +1,4 @@
-        
-        <style>
+<style>
         
         
 #fb-share-button {
@@ -44,8 +43,8 @@
                                 <div class="zoompro-wrap-2 zoompro-2">
                                     <div id="sectionfotoproducto" class="zoom">
                                         <center>
-                                            <a href="http://www.abexacloud.com/XBest/Adjunto/imagenproducto/20602732402/imgproducto_2622.jpg" class="zoom">
-                                            <img src="http://www.abexacloud.com/XBest/Adjunto/imagenproducto/20602732402/imgproducto_2622.jpg" /></a>
+                                            <a href="<?=$UrlImagen?>" class="zoom">
+                                            <img src="<?=$UrlImagen?>" /></a>
                                         </center>
                                     </div>
                                   
@@ -54,7 +53,7 @@
                         </div>
                         <div class="col-xl-6 col-lg-6 col-md-12">
                             <div class="product-details-content">
-                                <h2 id="lblnombreProducto">-</h2>
+                                <h2 id="lblnombreProducto"><?=$NomProducto?></h2>
                                 <div class="pro-details-rating-wrap">
                                     <div class="rating-product">
                                         <i class="ion-android-star"></i>
@@ -67,11 +66,11 @@
                                 <div class="pricing-meta">
                                     <ul>
                                         <!-- <li class="old-price">$23.90</li> -->
-                                        <li class="cuttent-price" id="lblprecioproducto" >-</li>
+                                        <li class="cuttent-price" id="lblprecioproducto" ><?=$PrecioProducto?></li>
                                     </ul>
                                 </div>
                                 <div class="pro-details-list">
-                                    <p id="lblcaracteristicas">-</p>
+                                    <p id="lblcaracteristicas"><?=$Caracteristicas?></p>
                                 </div>
                                 <div class="pro-details-quality mt-0px">
                                     <div class="cart-plus-minus">
@@ -101,7 +100,7 @@
                                                     <span>Compartir</span>
                                                 </div> -->
 
-                                                <a href="#" data-type="facebook" data-url="http://www.mvinda.com/Web/DetalleProducto/?codigoProducto=122" data-title="Mvinda S.A.C." data-description="Monitor LG de 40 pulgadas." data-media="http://www.abexacloud.com/XBest/Adjunto/imagenproducto/20602732402/imgproducto_122.png" class="prettySocial fa fa-facebook"></a>
+                                                <a href="#" data-type="facebook" data-url="<?=$urlfbshared?>" data-title="Mvinda S.A.C." data-description="Monitor LG de 40 pulgadas." data-media="http://www.abexacloud.com/XBest/Adjunto/imagenproducto/20602732402/imgproducto_122.png" class="prettySocial fa fa-facebook"></a>
 
                                             </li>
                                             
@@ -133,11 +132,14 @@
     $(document).ready(function () {
         // getproductosBusqueda();
         // $('#txtbusquedaproducto').val(terminoBusqueda);
-        mostrarProductosEnOferta();
+        //mostrarProductosEnOferta();;;;;
+        $(".se-pre-con").fadeOut("slow");
+        $('.prettySocial').prettySocial();
     });
     
 
     function compartirProducto(e){
+        alert(2)
         var url = "http://www.mvinda.com/Web/DetalleProducto/?codigoProducto=122";
         // window.open('https://www.facebook.com/sharer/sharer.php?u=' + url,
         //     'facebook-share-dialog',
