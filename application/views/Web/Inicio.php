@@ -248,7 +248,10 @@
                                                 <li style="display: flex" >
                                                     <!-- <img title="Compartir en facebook" style="width: 38px;cursor:pointer" src="https://images.vexels.com/media/users/3/223136/isolated/preview/984f500cf9de4519b02b354346eb72e0-facebook-icon-redes-sociales-by-vexels.png"> -->
                                                     <li id="social_facebook">
-                                                        <a href="#" id="linksharedfb" data-type="facebook" data-url="#" data-title="Mvinda S.A.C." data-description="Monitor LG de 40 pulgadas." data-media="" class="prettySocial fa fa-facebook" style="width: 100%; background-color: #1877f2; color: white; padding-left: 10px; padding-right: 10px; border-radius: 5px;" >&nbsp; &nbsp;Compartir</a>
+                                                        <div id="contenedorFbShared">
+                                                            <a href="#" id="linksharedfb" data-type="facebook" data-url="#" data-title="Mvinda S.A.C." data-description="Monitor LG de 40 pulgadas." data-media="" class="prettySocial fa fa-facebook" style="width: 100%; background-color: #1877f2; color: white; padding-left: 10px; padding-right: 10px; border-radius: 5px;" >&nbsp; &nbsp;Compartir</a>
+                                                        </div>
+                                                        
 
                                                         
                                                     </li>
@@ -312,7 +315,14 @@
     };
     //
     function verDetalleProducto(elemento){
+<<<<<<< HEAD
     $('.prettySocial').socialjs('destroy')
+=======
+    
+
+        // $('.prettySocial').socialjs('destroy')
+
+>>>>>>> 48c9ebcad6443ca25f580d184f624a516a0ae80d
         $('#txtcantidad').val(1);
         $('#lblNombreproductomodal').text('-');
         $('#lblpreciomodal').text('-');
@@ -371,14 +381,20 @@
         ITEMPRODUCTO.ventadolares = Number(preciodolares); 
         //
         console.log("urlproductodetalle->", urlproductodetalle);
-        $('#linksharedfb').removeAttr('data-href');
-        $('#linksharedfb').removeAttr('data-url');
-        $('#linksharedfb').removeAttr('href');
-        //
 
-        $('#linksharedfb').attr('data-href',URL_BASE + urlproductodetalle);
-        $('#linksharedfb').attr('data-url',URL_BASE + urlproductodetalle);
-        $('#linksharedfb').attr('href',URL_BASE + urlproductodetalle);
+
+        $('#contenedorFbShared').empty();
+        var idlinksharedfacb = 'linksharedfb' + '_' + codigoprod;
+        var strlinkproducto = '<a href="'+ URL_BASE + urlproductodetalle +'" id="'+ idlinksharedfacb +'" data-type="facebook" data-url="'+ 
+        URL_BASE + urlproductodetalle +'" data-title="Mvinda S.A.C." data-description="Monitor LG de 40 pulgadas." data-media="" class="prettySocial fa fa-facebook" style="width: 100%; background-color: #1877f2; color: white; padding-left: 10px; padding-right: 10px; border-radius: 5px;" >&nbsp; &nbsp;Compartir</a>';
+
+        $('#contenedorFbShared').append(strlinkproducto);
+        // $('#linksharedfb').removeAttr('data-href');
+        $('#'+ idlinksharedfacb).removeAttr('data-url');
+        $('#'+ idlinksharedfacb).removeAttr('href');
+        // $('#linksharedfb').attr('data-href',URL_BASE + urlproductodetalle);
+        $('#'+ idlinksharedfacb).attr('data-url',URL_BASE + urlproductodetalle);
+        $('#' + idlinksharedfacb).attr('href',URL_BASE + urlproductodetalle);
         //
         $('#linksharedWhatsapp').attr('href',"https://web.whatsapp.com/send?text=" + URL_BASE +  urlproductodetalle);
         $('#modalDetalleProducto').modal('show');
