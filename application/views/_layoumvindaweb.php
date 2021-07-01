@@ -7,6 +7,23 @@
         <meta name="robots" content="noindex, follow" />
         <meta name="description" content="" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        
+        <?php if(isset($CodProducto)) { ?>
+
+        <meta property="og:locale" content="en_ES" />
+        <meta property="og:type" content="Producto electrónico" />
+        <meta property="og:title" content="<?=$NomProducto?>" />
+        <meta property="og:description" content="<?=$descfacebook?>" />
+        <meta property="og:url" content="<?=$urlfbshared?>" />
+        <meta property="og:site_name" content="Mvinda Company S.AC" />
+        <meta property="article:publisher" content="https://www.facebook.com/MvindaCompanyOficial" />
+        <meta property="article:author" content="https://www.facebook.com/MvindaCompanyOficial" />
+
+        <meta property="fb:app_id" content="3058970330780590" />
+        <meta property="og:image" content="<?=$imgfbshared?>" />
+        <meta property="og:image:secure_url" content="https://kinsta.com/wp-content/uploads/2016/03/website-speed-optimization-2.png" />
+
+        <?php } ?>
         <!-- Favicon -->
         <link rel="shortcut icon" type="image/x-icon" href="<?=base_url()?>assets/abelostyle/assets/images/favicon/favicon.png" />
         <!-- Google Fonts -->

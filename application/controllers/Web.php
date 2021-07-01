@@ -117,12 +117,117 @@ class Web extends CI_Controller {
     $datos["termbusqueda"] = "";
     $datos["codproducto"] = $codigoproducto;
 
-    $this->load->view('/_layoumvindaweb');
+    $data_producto = $this->getProductosById($codigoproducto);
+    $data_tipo_cambio =  $this->getTipoCambio();
+    //
+    $dataArrayTipoCambio = json_decode($data_tipo_cambio, true);
+    //
+    $dataArray = json_decode($data_producto, true);
+    $cantidadDatos = count($dataArray);
+    $COSTO_DOLAR_HOY = $dataArrayTipoCambio[0]["tipocambioparalelo"];
+    $dataproducto = [];
+
+    if($cantidadDatos > 0){
+      $precioVenta = $dataArray[0]["PrecioVenta"];
+      $codmoneda = $dataArray[0]["CodMoneda"];
+      $urlproducto = $dataArray[0]["UrlImagen"];
+      $codigoproducto = $dataArray[0]["CodProducto"];
+      //
+      $precio_venta_soles = ($codmoneda == 1 ? $precioVenta : ($precioVenta * $COSTO_DOLAR_HOY) );
+      $precio_venta_dolares = ($codmoneda == 2 ? $precioVenta : ($precioVenta / $COSTO_DOLAR_HOY) );
+      $urlimagen = "";
+      $caracteristicas_producto =  $dataArray[0]["Caracteristicas"];
+      $caracteristicas_fb = "";
+      $urlimgfacebook = "";
+      //assets/images/Logo.png
+      if(strlen($urlproducto) == 0 ){
+        $urlimagen = base_url().'assets/abelostyle/assets/images/product-image/6.jpg';
+        $urlimgfacebook = base_url().'assets/images/Logo.png';
+      }else{
+        $urlimagen = 'http://www.abexacloud.com/XBest/Adjunto/imagenproducto/20602732402/'.$urlproducto;
+        $urlimgfacebook = 'http://www.abexacloud.com/XBest/Adjunto/imagenproducto/20602732402/'.$urlproducto;
+      }
+
+      if(strlen($caracteristicas_producto) == 0 ){
+        $caracteristicas_fb = " Caracteristicas del producto.";
+      }else{
+        $caracteristicas_fb = $caracteristicas_producto;
+      }
+
+
+      $dataproducto["CodProducto"] = $dataArray[0]["CodProducto"];
+      $dataproducto["NomProducto"] = $dataArray[0]["NomProducto"];
+      $dataproducto["Marca"] = $dataArray[0]["Marca"];
+      $dataproducto["Caracteristicas"] = $caracteristicas_fb;
+      $dataproducto["PrecioVenta"] = $precioVenta;
+      $dataproducto["CodMoneda"] = $codmoneda;
+      $dataproducto["UrlImagen"] = $urlimagen;
+      $dataproducto["PrecioProducto"] = 'S/. '.number_format($precio_venta_soles, 2,'.',''). ' ($'.number_format($precio_venta_dolares, 2, '.', '').') ';
+      $dataproducto["precio_venta_soles"] = number_format($precio_venta_soles, 2,',', '');
+      $dataproducto["precio_venta_dolares"] = number_format($precio_venta_dolares, 2,',', '');
+      $dataproducto["urlfbshared"] = base_url().'Web/DetalleProducto/?codigoProducto='.$codigoproducto;
+      $dataproducto["descfacebook"] = 'S/. '.number_format($precio_venta_soles, 2,'.',''). ' ($'.number_format($precio_venta_dolares, 2, '.', '').') '.$caracteristicas_fb;
+      $dataproducto["imgfbshared"] = $urlimgfacebook;
+    }
+    //var_dump(count($dataArray));
+
+
+
+    
+    $this->load->view('/_layoumvindaweb',$dataproducto);
     $this->load->view('/_headermvinweb', $datos);
     // $this->load->view('Web/Inicio', $datos);
     $this->load->view('/Web/DetalleProducto', $datos);
     $this->load->view('/_footermvindaweb');
   }
+
+
+  public function getTipoCambio(){
+    $host = "http://abexacloud.com/ApiXbest/api/getTipoCambio";
+    $user_name = 'ABEXA';
+    $password = '4B3XA2021';
+    $codProducto = "da";
+    $options = array('http' =>
+    array(
+        'method'  => 'POST',
+        'header'  => "Content-type: application/json" . PHP_EOL
+                   . "Accept: application/json" . PHP_EOL
+                   . "Authorization: Basic " . base64_encode("$user_name:$password"),
+                   'content' => '{ "parametro" : "'.$codProducto.'" }'
+        )
+    );
+    $context  = stream_context_create($options);
+    $json_response = file_get_contents($host, false, $context);
+    //$response = json_decode($json_response, true);
+    //header('Content-Type: application/json');
+    //echo $json_response;     
+    return $json_response;
+  }
+
+
+
+  public function getProductosById($codProducto){
+    $host = "http://abexacloud.com/ApiXbest/api/GetProductosPorCodigo";
+    $user_name = 'ABEXA';
+    $password = '4B3XA2021';
+    
+    $options = array('http' =>
+    array(
+        'method'  => 'POST',
+        'header'  => "Content-type: application/json" . PHP_EOL
+                   . "Accept: application/json" . PHP_EOL
+                   . "Authorization: Basic " . base64_encode("$user_name:$password"),
+        'content' => '{ "parametro" : "'.$codProducto.'" }'
+        )
+    );
+    $context  = stream_context_create($options);
+    $json_response = file_get_contents($host, false, $context);
+    //$response = json_decode($json_response, true);
+    //header('Content-Type: application/json');
+    //echo $json_response;     
+    return $json_response;
+  }
+
 
   public function ResumenPedido(){
     // $codigoproducto =  $_GET["codigoProducto"];

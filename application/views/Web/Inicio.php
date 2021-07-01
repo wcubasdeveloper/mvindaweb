@@ -357,7 +357,7 @@
             $('#lblpreciomodal').text('S./ '+ Number(preciosoles).toFixed(2) + ' ($ '+ Number(preciodolares).toFixed(2) +')');
         }
         //
-        var urlproductodetalle = URL_BASE + 'Web/DetalleProducto/?codigoProducto=' +codigoprod;
+        var urlproductodetalle = 'Web/DetalleProducto/?codigoProducto=' +codigoprod;
         // console.log('urlproductodetalle->',urlproductodetalle);
         $('#lblNombreproductomodal').html(nombre);
         $('#lbldescripcionmodal').text(caracteristicas);
