@@ -315,14 +315,10 @@
     };
     //
     function verDetalleProducto(elemento){
-<<<<<<< HEAD
-    $('.prettySocial').socialjs('destroy')
-=======
     
 
         // $('.prettySocial').socialjs('destroy')
 
->>>>>>> 48c9ebcad6443ca25f580d184f624a516a0ae80d
         $('#txtcantidad').val(1);
         $('#lblNombreproductomodal').text('-');
         $('#lblpreciomodal').text('-');
