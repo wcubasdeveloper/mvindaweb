@@ -1,5 +1,4 @@
-        
-        <style>
+<style>
         
         
 #fb-share-button {
