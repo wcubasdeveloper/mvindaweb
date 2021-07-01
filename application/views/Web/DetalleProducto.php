@@ -133,7 +133,7 @@
     $(document).ready(function () {
         // getproductosBusqueda();
         // $('#txtbusquedaproducto').val(terminoBusqueda);
-        //mostrarProductosEnOferta();
+        //mostrarProductosEnOferta();;;;;
         $(".se-pre-con").fadeOut("slow");
         $('.prettySocial').prettySocial();
     });
