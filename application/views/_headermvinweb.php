@@ -932,8 +932,8 @@
             // console.log("url CATEGORIAS->>", URL_BASE);
             $.each(rpta,function(){
                 // strHTMLoption += '<option value="'+this.CodCategoriaProducto+'">'+ this.NomCategoriaProducto +'</option>';
-                strHTMLcategoriaMenu += '<li><a href="'+ '<?php base_url()?>' + 'Web/ProductosByCategoria?c=' + this.CodCategoriaProducto +'">' +  '>'+ this.NomCategoriaProducto +'</a></li>';
-                strHTMLcategoriaLink += '<li class="menu-item"><a href="'+ URL_BASE + 'Web/ProductosByCategoria?c=' + this.CodCategoriaProducto + '|' + this.NomCategoriaProducto +'">'+ '<span class="lnr lnr-chevron-right-circle"></span> ' +this.NomCategoriaProducto +'</a></li>';
+                strHTMLcategoriaMenu += '<li><a href="'+ 'Web/ProductosByCategoria?c=' + this.CodCategoriaProducto +'">' +  '>'+ this.NomCategoriaProducto +'</a></li>';
+                strHTMLcategoriaLink += '<li class="menu-item"><a href="Web/ProductosByCategoria?c=' + this.CodCategoriaProducto + '|' + this.NomCategoriaProducto +'">'+ '<span class="lnr lnr-chevron-right-circle"></span> ' +this.NomCategoriaProducto +'</a></li>';
             });
             // strHTMLoption += '<option value="0" selected >Todo</option>';
             // $('#selectCategorias').append(strHTMLoption);
