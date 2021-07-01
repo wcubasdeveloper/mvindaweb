@@ -253,7 +253,7 @@
                                                     </li>
 
                                                     <li style="padding-left: 24px;" >
-                                                        <a d="linksharedWhatsapp" href="https://web.whatsapp.com:/send?text=Hola soy un mensaje" class="whatsapp" target="_blank" style="display: initial;background-color: #25d366;color: white;padding-left: 10px;font-size: 21px;padding-right: 10px;padding-top: 3px;padding-bottom: 3px;border-radius: 5px;" > <i class="fa fa-whatsapp whatsapp-icon"></i></a>
+                                                        <a d="linksharedWhatsapp" href="#" class="whatsapp" target="_blank" style="display: initial;background-color: #25d366;color: white;padding-left: 10px;font-size: 21px;padding-right: 10px;padding-top: 3px;padding-bottom: 3px;border-radius: 5px;" > <i class="fa fa-whatsapp whatsapp-icon"></i></a>
                                                     </li>
                                                 </li>
                                             </ul>
