@@ -33,7 +33,7 @@
                     <div class="row">
                         <div class="col-md-3 d-flex">
                             <div class="logo align-self-center">
-                                <a href="<?=base_url()?>"><img class="img-responsive" src="<?=base_url()?>assets/images/Logo.png" alt="logo.jpg" /></a>
+                                <a href="/"><img class="img-responsive" src="<?=base_url()?>assets/images/Logo.png" alt="logo.jpg" /></a>
                             </div>
                         </div>
                         <div class="col-md-9 align-self-center">
