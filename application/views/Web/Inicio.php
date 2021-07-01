@@ -248,7 +248,8 @@
                                                 <li style="display: flex" >
                                                     <!-- <img title="Compartir en facebook" style="width: 38px;cursor:pointer" src="https://images.vexels.com/media/users/3/223136/isolated/preview/984f500cf9de4519b02b354346eb72e0-facebook-icon-redes-sociales-by-vexels.png"> -->
                                                     <li id="social_facebook">
-                                                        <a href="#" id="linksharedfb" data-type="facebook" data-url="" data-title="Mvinda S.A.C." data-description="Monitor LG de 40 pulgadas." data-media="" class="prettySocial fa fa-facebook" style="width: 100%; background-color: #1877f2; color: white; padding-left: 10px; padding-right: 10px; border-radius: 5px;" >&nbsp; &nbsp;Compartir</a>
+                                                        <a href="#" id="linksharedfb" data-type="facebook" data-url="http://www.mvinda.com/Web/DetalleProducto/?codigoProducto=122" data-title="Mvinda S.A.C." data-description="Monitor LG de 40 pulgadas." data-media="" class="prettySocial fa fa-facebook" style="width: 100%; background-color: #1877f2; color: white; padding-left: 10px; padding-right: 10px; border-radius: 5px;" >&nbsp; &nbsp;Compartir</a>
+
                                                         
                                                     </li>
 
@@ -371,6 +372,8 @@
         ITEMPRODUCTO.ventadolares = Number(preciodolares); 
         //
         $('#linksharedfb').attr('data-href',urlproductodetalle);
+        $('#linksharedfb').attr('data-url',urlproductodetalle);
+        
         $('#linksharedfb').attr('href',urlproductodetalle);
 
    
