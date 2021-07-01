@@ -371,10 +371,10 @@
         ITEMPRODUCTO.ventasoles = Number(preciosoles);
         ITEMPRODUCTO.ventadolares = Number(preciodolares); 
         //
-        $('#linksharedfb').attr('data-href',urlproductodetalle);
-        $('#linksharedfb').attr('data-url',urlproductodetalle);
+        $('#linksharedfb').attr('data-href',URL_BASE + urlproductodetalle);
+        $('#linksharedfb').attr('data-url',URL_BASE + urlproductodetalle);
         
-        $('#linksharedfb').attr('href',urlproductodetalle);
+        $('#linksharedfb').attr('href',URL_BASE + urlproductodetalle);
 
    
         $('#linksharedWhatsapp').attr('href', "Puedes encontrar mas información del producto Aqui " + " " + urlproductodetalle);
