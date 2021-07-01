@@ -370,11 +370,17 @@
         ITEMPRODUCTO.ventasoles = Number(preciosoles);
         ITEMPRODUCTO.ventadolares = Number(preciodolares); 
         //
+        console.log("urlproductodetalle->", urlproductodetalle);
+        $('#linksharedfb').removeAttr('data-href');
+        $('#linksharedfb').removeAttr('data-url');
+        $('#linksharedfb').removeAttr('href');
+        //
+
         $('#linksharedfb').attr('data-href',URL_BASE + urlproductodetalle);
         $('#linksharedfb').attr('data-url',URL_BASE + urlproductodetalle);
         $('#linksharedfb').attr('href',URL_BASE + urlproductodetalle);
         //
-        $('#linksharedWhatsapp').attr('href',"https://web.whatsapp.com/send?text=" + URL_BASE +  urlproductodetalle + " Mira esté producto !!! ");
+        $('#linksharedWhatsapp').attr('href',"https://web.whatsapp.com/send?text=" + URL_BASE +  urlproductodetalle);
         $('#modalDetalleProducto').modal('show');
         $('.prettySocial').prettySocial();
     }
