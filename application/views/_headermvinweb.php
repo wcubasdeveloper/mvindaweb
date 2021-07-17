@@ -582,7 +582,7 @@
                 if(request.term.length >= 4){ //si el tecleado es igual o mayor a 4 caracteres
                     $(".ui-menu-item").empty();
                     var parametros = request.term + '|' + 0;
-                    var URL_GET_PRODUCTOS = "XbestServicio/getProductosByLike";
+                    var URL_GET_PRODUCTOS = URL_BASE + "XbestServicio/getProductosByLike";
                     $.post(URL_GET_PRODUCTOS,
                     {
                         nombreproducto: parametros
