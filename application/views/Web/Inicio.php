@@ -376,9 +376,7 @@
         ITEMPRODUCTO.ventasoles = Number(preciosoles);
         ITEMPRODUCTO.ventadolares = Number(preciodolares); 
         //
-        console.log("urlproductodetalle->", urlproductodetalle);
-
-
+ 
         $('#contenedorFbShared').empty();
         var idlinksharedfacb = 'linksharedfb' + '_' + codigoprod;
         var strlinkproducto = '<a href="'+ URL_BASE + urlproductodetalle +'" id="'+ idlinksharedfacb +'" data-type="facebook" data-url="'+ 

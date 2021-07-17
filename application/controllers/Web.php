@@ -373,7 +373,7 @@ class Web extends CI_Controller {
     $nombreImagen = "img_".time().'.'.$imgFile[1];
     $config['file_name'] = $nombreImagen;//$CodProducto;//.$data['upload_data']["file_type"];    
     $this->load->library('upload', $config);
-
+    //
     if($this->upload->do_upload("file")){
       // $data = array('upload_data' => $this->upload->data());
       $data = $this->upload->data();
