@@ -146,6 +146,8 @@ class User extends CI_Controller {
       //var_dump($this->config->base_url() . $UltimaVista);
       //exit();
 
+      //
+      $UltimaVista = 'Registros/Pedido/Pedidos';
       redirect($this->config->base_url() . $UltimaVista);
       /*
       $this->load->view('layout_principal');

@@ -123,9 +123,7 @@
     var URL_BASE = '<?=base_url()?>';
     var codproducto = '<?=$codproducto?>';
     var itemProducto = null;
-
     //
-
     $(document).ready(function () {
         // getproductosBusqueda();
         // $('#txtbusquedaproducto').val(terminoBusqueda);

@@ -348,7 +348,7 @@ public function procGeneralWebHook(){
   
     public function Slider($Titulo){
  
-      // $this->load->library('session');
+      $this->load->library('session');
       // if(empty($this->session->userdata('username'))){
       //     redirect('user/login');
       // }
@@ -377,7 +377,7 @@ public function procGeneralWebHook(){
   
     public function Pedido($Titulo){
  
-      // $this->load->library('session');
+      $this->load->library('session');
       // if(empty($this->session->userdata('username'))){
       //     redirect('user/login');
       // }
@@ -406,7 +406,7 @@ public function procGeneralWebHook(){
 
     public function MuestraCategorias($Titulo){
  
-      // $this->load->library('session');
+       $this->load->library('session');
       // if(empty($this->session->userdata('username'))){
       //     redirect('user/login');
       // }
@@ -435,7 +435,7 @@ public function procGeneralWebHook(){
 
     public function NuevosProductos($Titulo){
  
-      //$this->load->library('session');
+      $this->load->library('session');
       // if(empty($this->session->userdata('username'))){
       //     redirect('user/login');
       //}
@@ -463,7 +463,8 @@ public function procGeneralWebHook(){
 
     public function Ofertas($Titulo){
  
-  
+      $this->load->library('session');
+
       $nombreusuario = $_SESSION['username'];
       /***** desarrollo *****/
       if(empty($nombreusuario)){
@@ -487,7 +488,8 @@ public function procGeneralWebHook(){
 
     public function Configuracion($Titulo){
  
-  
+      $this->load->library('session');
+
       $nombreusuario = $_SESSION['username'];
       /***** desarrollo *****/
       if(empty($nombreusuario)){
