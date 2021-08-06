@@ -104,7 +104,7 @@
                         <div class="col-lg-9" >
                             <div class="header-horizontal-menu">
                                 <ul class="menu-content">
-                                    <li><a href="<?=base_url()?>Web/TerminosYCondiciones" style="text-transform:initial" >Términos y condiciones</a></li>
+                                    <!-- <li><a href="<?=base_url()?>Web/TerminosYCondiciones" style="text-transform:initial" >Términos y condiciones</a></li> -->
                                     <li><a href="<?=base_url()?>Web/NuestraEmpresa" style="text-transform:initial" >Nuestra empresa</a></li>
 
                                     <!-- <li class="active menu-dropdown">
@@ -549,9 +549,35 @@
         </div>
     </div>
     <!-- OffCanvas Search End -->
+
+<style>
+
+.whatsappfixed {
+  position:fixed;
+  width:60px;
+  height:60px;
+  bottom:50%;
+  right:40px;
+  background-color:#25d366;
+  color:#FFF;
+  border-radius:50px;
+  text-align:center;
+  font-size:30px;
+  z-index:100;
+}
+
+.whatsapp-iconfixed {
+  margin-top:13px;
+}
+
+</style>
+    <a href="https://wa.me/51955102830?text=MVINDA%20S.A.C.%20Me%20gustaría%20que%20se%20contactaran%20conmigo%20para%20tener%20mas%20informacion%20de%20sus%20productos" class="whatsappfixed" target="_blank"> 
+        <i class="fa fa-whatsapp whatsapp-iconfixed"></i>
+    </a>
+
 <script>
     var terminoBusqueda = '<?=$termbusqueda?>';
-    var COSTO_DOLAR_HOY = 3.840;
+    var COSTO_DOLAR_HOY = '<?=$precioventadolar?>';
     var URL_BASE = '<?=base_url()?>';
 
     $(document).ready(function () {

@@ -31,8 +31,13 @@ class Web extends CI_Controller {
     //$datos["productosmasvendidos"] = $dataProductosMasVendidos;
     //$datos["imgslider"] = $getImagenSlider;
 
-    $getImagenSlider = $this->general_model->ProcSQL("call ProcSlider('',10);"); 
+    $getImagenSlider = $this->general_model->ProcSQL("call ProcSlider('',10);");
+    $getipocambio = $this->general_model->ProcGeneral('MvindaProcPedido','',20);
+    //$getipocambio = $this->general_model->ProcSQL("call MvindaProcPedido('',20);");
+    $precioventadolar =  $getipocambio[0]["cambioventa"];
+ 
     $datos["imgslider"] = $getImagenSlider;
+    $datos["precioventadolar"] = $precioventadolar;
     $datos["termbusqueda"] = "";
     // var_dump($datos["imgslider"]);
     // exit();
@@ -48,6 +53,10 @@ class Web extends CI_Controller {
     // $getImagenSlider = $this->general_model->ProcSQL("call ProcSlider('',10);"); 
     // $datos["imgslider"] = $getImagenSlider;
     //
+    $getipocambio = $this->general_model->ProcGeneral('MvindaProcPedido','',20);
+    $precioventadolar =  $getipocambio[0]["cambioventa"];
+
+    $datos["precioventadolar"] = $precioventadolar;
     $datos["termbusqueda"] = $terminobusqueda;
     $this->load->view('/_layoumvindaweb');
     $this->load->view('/_headermvinweb', $datos);
@@ -62,6 +71,10 @@ class Web extends CI_Controller {
     // $getImagenSlider = $this->general_model->ProcSQL("call ProcSlider('',10);"); 
     // $datos["imgslider"] = $getImagenSlider;
     //
+    $getipocambio = $this->general_model->ProcGeneral('MvindaProcPedido','',20);
+    $precioventadolar =  $getipocambio[0]["cambioventa"];
+
+    $datos["precioventadolar"] = $precioventadolar;
     $datos["termbusqueda"] = '';
     $this->load->view('/_layoumvindaweb');
     $this->load->view('/_headermvinweb', $datos);
@@ -70,7 +83,10 @@ class Web extends CI_Controller {
   }
 
   public function NuestraEmpresa(){
+    $getipocambio = $this->general_model->ProcGeneral('MvindaProcPedido','',20);
+    $precioventadolar =  $getipocambio[0]["cambioventa"];
 
+    $datos["precioventadolar"] = $precioventadolar;
     $datos["termbusqueda"] = '';
     $this->load->view('/_layoumvindaweb');
     $this->load->view('/_headermvinweb', $datos);
@@ -78,7 +94,58 @@ class Web extends CI_Controller {
     $this->load->view('/_footermvindaweb');
   }
 
+  public function SoporteTecnico(){
+    $getipocambio = $this->general_model->ProcGeneral('MvindaProcPedido','',20);
+    $precioventadolar =  $getipocambio[0]["cambioventa"];
+
+    $datos["precioventadolar"] = $precioventadolar;
+    $datos["termbusqueda"] = '';
+    $this->load->view('/_layoumvindaweb');
+    $this->load->view('/_headermvinweb', $datos);
+    $this->load->view('Web/SoporteTecnico');
+    $this->load->view('/_footermvindaweb');
+  }
+
+  public function Reclamo(){
+    $getipocambio = $this->general_model->ProcGeneral('MvindaProcPedido','',20);
+    $precioventadolar =  $getipocambio[0]["cambioventa"];
+
+    $datos["precioventadolar"] = $precioventadolar;
+    $datos["termbusqueda"] = '';
+    $this->load->view('/_layoumvindaweb');
+    $this->load->view('/_headermvinweb', $datos);
+    $this->load->view('Web/Reclamo');
+    $this->load->view('/_footermvindaweb');
+  }
+
+  public function TrabajaConNostros(){
+    $getipocambio = $this->general_model->ProcGeneral('MvindaProcPedido','',20);
+    $precioventadolar =  $getipocambio[0]["cambioventa"];
+
+    $datos["precioventadolar"] = $precioventadolar;
+    $datos["termbusqueda"] = '';
+    $this->load->view('/_layoumvindaweb');
+    $this->load->view('/_headermvinweb', $datos);
+    $this->load->view('Web/TrabajaConNostros');
+    $this->load->view('/_footermvindaweb');
+  }
+
+  public function TerminosGarantia(){
+    $getipocambio = $this->general_model->ProcGeneral('MvindaProcPedido','',20);
+    $precioventadolar =  $getipocambio[0]["cambioventa"];
+
+    $datos["precioventadolar"] = $precioventadolar;
+    $datos["termbusqueda"] = '';
+    $this->load->view('/_layoumvindaweb');
+    $this->load->view('/_headermvinweb', $datos);
+    $this->load->view('Web/TerminosGarantia');
+    $this->load->view('/_footermvindaweb');
+  }
+
+  
+
   public function ProductosByCategoria(){
+    
     $serializadocategoria =  $_GET["c"];
     $porcionesdata = explode("|", $serializadocategoria);
 
@@ -86,6 +153,10 @@ class Web extends CI_Controller {
     $nombrecategoria  = $porcionesdata[1];
     $terminobusqueda =  '';
     //
+    $getipocambio = $this->general_model->ProcGeneral('MvindaProcPedido','',20);
+    $precioventadolar =  $getipocambio[0]["cambioventa"];
+
+    $datos["precioventadolar"] = $precioventadolar;
     $datos["termbusqueda"] = '';
     $datos["codcategoria"] = $codcategoriaproducto;
     $datos["nomcategoria"] = $nombrecategoria;
@@ -102,6 +173,10 @@ class Web extends CI_Controller {
 
     $terminobusqueda =  '';
     //
+    $getipocambio = $this->general_model->ProcGeneral('MvindaProcPedido','',20);
+    $precioventadolar =  $getipocambio[0]["cambioventa"];
+
+    $datos["precioventadolar"] = $precioventadolar;
     $datos["termbusqueda"] = '';
 
     $this->load->view('/_layoumvindaweb');
@@ -118,13 +193,16 @@ class Web extends CI_Controller {
     $datos["codproducto"] = $codigoproducto;
 
     $data_producto = $this->getProductosById($codigoproducto);
-    $data_tipo_cambio =  $this->getTipoCambio();
+    $getipocambio = $this->general_model->ProcGeneral('MvindaProcPedido','',20);
     //
-    $dataArrayTipoCambio = json_decode($data_tipo_cambio, true);
+    //$dataArrayTipoCambio = json_decode($data_tipo_cambio, true);
     //
+
+    $datos["precioventadolar"] = $getipocambio[0]["cambioventa"];
+
     $dataArray = json_decode($data_producto, true);
     $cantidadDatos = count($dataArray);
-    $COSTO_DOLAR_HOY = $dataArrayTipoCambio[0]["tipocambioparalelo"];
+    $COSTO_DOLAR_HOY =  $getipocambio[0]["cambioventa"];
     $dataproducto = [];
 
     if($cantidadDatos > 0){
@@ -231,6 +309,10 @@ class Web extends CI_Controller {
 
   public function ResumenPedido(){
     // $codigoproducto =  $_GET["codigoProducto"];
+    $getipocambio = $this->general_model->ProcGeneral('MvindaProcPedido','',20);
+    $precioventadolar =  $getipocambio[0]["cambioventa"];
+
+    $datos["precioventadolar"] = $precioventadolar;
     $datos["termbusqueda"] = "";
     // $datos["codproducto"] = $codigoproducto;
 

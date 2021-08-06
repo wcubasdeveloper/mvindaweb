@@ -39,6 +39,8 @@ class General_model extends CI_Model {
 		return $rpta;
 	}
 
+
+
 	public function ProcPedidoTran($datoscliente, $datosdireccion, $datosPedido,  $datosPedidoDetalle) {
 
 		$ServidorBD = $this->db->hostname;
@@ -291,6 +293,8 @@ class General_model extends CI_Model {
 						//$query = $this->db->query("call ProcUsuario ('rolando|123|12',11)");
 						//return $query;
 						$row = $query->result_array();
+						$query->free_result();
+						$query->next_result();
 						$rpta = $row;
 				} catch (Exception $e) {
 						$rpta = $e->getMessage();
