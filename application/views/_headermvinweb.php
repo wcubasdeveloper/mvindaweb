@@ -105,7 +105,7 @@
                             <div class="header-horizontal-menu">
                                 <ul class="menu-content">
                                     <!-- <li><a href="<?=base_url()?>Web/TerminosYCondiciones" style="text-transform:initial" >Términos y condiciones</a></li> -->
-                                    <li><a href="<?=base_url()?>Web/NuestraEmpresa" style="text-transform:initial" >Nuestra empresa</a></li>
+                                    <!-- <li><a href="<?=base_url()?>Web/NuestraEmpresa" style="text-transform:initial" >Nuestra empresa</a></li> -->
 
                                     <!-- <li class="active menu-dropdown">
                                         <a href="##">Home <i class="ion-ios-arrow-down"></i></a>

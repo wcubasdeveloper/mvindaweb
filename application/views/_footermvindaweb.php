@@ -14,20 +14,21 @@
                             </div>
                         </div>
 
-                        <div class="col-md-6 col-lg-8 mb-md-30px mb-lm-30px">
+                        <div class="col-md-6 col-lg-6 mb-md-30px mb-lm-30px">
                             <div class="single-wedge">
                                 
                                 <p class="text-infor"></p>
                                 <h4 class="footer-herading" style="color: #25d366;">CONTACTO</h4>
                                 <div class="need_help" style="color:white">
                                     <p style="color: white;" ><span style="color: white;" class="lnr lnr-map-marker"></span>&nbsp;&nbsp; Av. Inca Garcilaso de la Vega 1261, Cercado de Lima 15001</p>
-                                    <p style="color: white;" ><span style="color: white;" class="lnr lnr-apartment"></span>&nbsp;&nbsp; Galeria Garcilazo de la Vega</p>
-                                    <p style="color: white;" ><span style="color: white;" class="lnr lnr-envelope"></span>&nbsp;&nbsp; infomvinda@mvinda.com.pe</p>
-                                    <p style="color: white;" ><span style="color: white;" class="lnr lnr-phone-handset"></span>&nbsp;&nbsp; 955102830 - 987654321 - 99999999</p>
+                                    <p style="color: white;" ><span style="color: white;" class="lnr lnr-apartment"></span>&nbsp;&nbsp; Galeria Garcilazo de la Vega N° 1261 Tiendas (B131 - B132 - B141) </p>
+                                    <p style="color: white;" ><span style="color: white;" class="lnr lnr-envelope"></span>&nbsp;&nbsp; ventas@mvinda.com - info@mvinda.com</p>
+                                    <p style="color: white;" ><span style="color: white;" class="lnr lnr-envelope"></span>&nbsp;&nbsp; contacto@mvinda.com - garantia@mvinda.com</p>
+                                    <p style="color: white;" ><span style="color: white;" class="lnr lnr-phone-handset"></span>&nbsp;&nbsp; 955102830</p>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6 col-lg-2 col-sm-6 mb-md-30px mb-lm-30px">
+                        <div class="col-md-6 col-lg-4 col-sm-6 mb-md-30px mb-lm-30px">
                             <div class="single-wedge">
                                 <h4 class="footer-herading" style="color: #25d366;">GARANTIAS</h4>
                                 <div class="footer-links">
@@ -36,14 +37,17 @@
                                         <!-- <li><a style="color:white"  href="##">Delivery y política de envio</a></li> -->
                                         <li><a style="color:white"  href="<?=base_url()?>Web/TerminosGarantia" >Términos de garantía</a></li>
                                         <!-- <li><a style="color:white"  href="##">Contáctanos</a></li> -->
-                                        <li><a style="color:white" href="<?=base_url()?>Web/SoporteTecnico" >Soporte técnico</a></li>
+                                        <li><a style="color:white" href="<?=base_url()?>Web/SoporteTecnico" >Soporte técnico</a>
+                                            <ul style="padding-left: 15px;font-size: 13px;" >
+                                                <li>Ensamblaje</li>
+                                                <li>Instalación y configuración de drivers</li>
+                                                <li>Consultoria y asesoramiento en equipos de cómputo</li>
+                                            </ul>
+                                        </li>
                                         <li><a style="color:white" href="<?=base_url()?>Web/Reclamo" >Formulario de reclamos</a></li>
                                         <!-- <li><a style="color:white"  href="##">Libro de reclamaciones</a></li> -->
                                     </ul>
                                 </div>
-
-
-                          
 
                             </div>
                         </div>

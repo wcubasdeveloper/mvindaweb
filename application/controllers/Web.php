@@ -496,6 +496,54 @@ class Web extends CI_Controller {
   }
 
 
+  public function SubirArchivoCV(){
+    $this->load->library('session');
+    $nombreUsuario = $this->session->userdata('username');
+
+    $txtnumerodocumento = $this->input->post('txtnumerodocumento');
+    $txtnombrescompletos = $this->input->post('txtnombrescompletos');
+    $txtapellidos = $this->input->post('txtapellidos');
+    $txttelefono = $this->input->post('txttelefono');
+    $txtemail = $this->input->post('txtemail');
+    $txtasunto = $this->input->post('txtasunto');
+
+    $config['upload_path'] = "./assets/cvpostulantes";
+    $config['allowed_types'] = 'doc|docx|pdf';
+    // $config['allowed_types'] = 'jpeg';
+    $config['encrypt_name'] = False;
+    $config['overwrite'] = True;
+    $imgFile = explode(".", $_FILES["file"]['name']);
+    
+    $Procedimiento = 'MvindaProcPedido';
+
+    $Parametros = $txtnumerodocumento . '|' . $txtnombrescompletos . '|' . $txtapellidos . '|' . $txttelefono . '|' . $txtemail. '|' . $txtasunto;
+    $Indice = 23;
+    $Resultado = $this->general_model->ProcGeneral($Procedimiento, $Parametros, $Indice);
+
+    $codresultado = $Resultado[0]["CodResultado"];
+    $codauxiliarregistro = 0;
+    
+    if($codresultado == 1){
+      $codauxiliarregistro = $Resultado[0]["CodAuxiliar"];
+      $nombreImagen = $codauxiliarregistro.'_CV_'.$txtnumerodocumento.'.'.$imgFile[1];
+      $config['file_name'] = $nombreImagen;//$CodProducto;//.$data['upload_data']["file_type"];    
+      $this->load->library('upload', $config);
+      if($this->upload->do_upload("file")){
+        $data = $this->upload->data();
+      }
+      
+      $Procedimiento = 'MvindaProcPedido';
+
+      $Parametros = $codauxiliarregistro . '|' . $nombreImagen;
+      $Indice = 26;
+      $Resultado = $this->general_model->ProcGeneral($Procedimiento, $Parametros, $Indice);
+    }
+  
+    echo json_encode($Resultado);
+
+  }
+
+
   public function getProductobyCategoria(){
     $codCategoria = $_POST["codcategoria"];
     $curl = curl_init();

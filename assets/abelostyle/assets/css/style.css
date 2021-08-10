@@ -707,7 +707,7 @@ p {
   vertical-align: -3px;
 }
 .header-menu .header-menu-vertical .menu-title:after {
-  content: ">";
+  content: " ";
   display: inline-block;
   font-size: 15px;
   font-family: "Ionicons";
