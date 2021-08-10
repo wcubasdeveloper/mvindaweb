@@ -537,8 +537,57 @@ public function procGeneralWebHook(){
       $this->load->view('/footeradmin');
     }
 
-  public function Prueba(){
-    $this->load->view('/Registros/Prueba');
-  }
+    public function TrabajaConNosotros($Titulo){
+ 
+      $this->load->library('session');
+      $nombreusuario = $_SESSION['username'];
+      /***** desarrollo *****/
+      if(empty($nombreusuario)){
+        redirect('user/login');
+      }
+
+      $datos["nomusuario"] = $nombreusuario;
+      //
+      $Data['Titulo'] = $Titulo;
+      $Controlador = $this->router->fetch_class();
+      $Accion = $this->router->fetch_method();
+      //
+      $Vista = $Controlador . '/' . $Accion;
+      //
+      $this->general_model->ProcActualizaUltimaVista($Vista . '/' . $Titulo);
+      //
+      $this->load->view('/layout_principal', $Data);
+      $this->load->view('/' . $Vista,$datos);
+      $this->load->view('/footeradmin');
+    }
+
+    public function Soporte($Titulo){
+ 
+      $this->load->library('session');
+      $nombreusuario = $_SESSION['username'];
+      /***** desarrollo *****/
+      if(empty($nombreusuario)){
+        redirect('user/login');
+      }
+
+      $datos["nomusuario"] = $nombreusuario;
+      //
+      $Data['Titulo'] = $Titulo;
+      $Controlador = $this->router->fetch_class();
+      $Accion = $this->router->fetch_method();
+      //
+      $Vista = $Controlador . '/' . $Accion;
+      //
+      $this->general_model->ProcActualizaUltimaVista($Vista . '/' . $Titulo);
+      //
+      $this->load->view('/layout_principal', $Data);
+      $this->load->view('/' . $Vista,$datos);
+      $this->load->view('/footeradmin');
+    }
+
+
+    public function Prueba(){
+      $this->load->view('/Registros/Prueba');
+    }
 
 }
