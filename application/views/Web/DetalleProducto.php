@@ -121,13 +121,43 @@
 
 <script>
     var URL_BASE = '<?=base_url()?>';
-    var codproducto = '<?=$codproducto?>';
+    var codproducto = '<?=$CodProducto?>';
+    var nombreproducto = '<?=$NomProducto?>';
+    var marca = '<?=$Marca?>';
+    var nombreurlimg = '<?=$UrlImagen?>';
+    var ventasoles = '<?=$precio_venta_soles?>';
+    var ventadolares = '<?=$precio_venta_dolares?>';
+
     var itemProducto = null;
     //
+      itemProducto = {
+            idproducto : codproducto,
+            nomProducto : nombreproducto,
+            marca : marca,
+            nombreurlimg : nombreurlimg,
+            ventasoles : ventasoles,
+            ventadolares : ventadolares,
+            cantidad : 0
+        };
+        console.log("itemProducto-", itemProducto);
+
+
     $(document).ready(function () {
         // getproductosBusqueda();
         // $('#txtbusquedaproducto').val(terminoBusqueda);
         //mostrarProductosEnOferta();;;;;
+   
+        // itemProducto = {
+        //     idproducto : codproducto,
+        //     nomProducto : nombreProducto,
+        //     marca : marcaProducto,
+        //     nombreurlimg : urlimagen,
+        //     ventasoles : precio_venta_soles,
+        //     ventadolares : precio_venta_dolares,
+        //     cantidad : 0
+        // };
+
+
         $(".se-pre-con").fadeOut("slow");
         
         socialwhatsappshared();
@@ -257,6 +287,7 @@
         var datatemparrprod = [];
         var cantidadingresada = Number($('#txtcantidad').val());
         //
+
         itemProducto.cantidad = cantidadingresada;
         if(!getProductosEnCarrito){
             setLocalDataCarrito('[]');

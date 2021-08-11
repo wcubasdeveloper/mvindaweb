@@ -241,8 +241,8 @@ class Web extends CI_Controller {
       $dataproducto["CodMoneda"] = $codmoneda;
       $dataproducto["UrlImagen"] = $urlimagen;
       $dataproducto["PrecioProducto"] = 'S/. '.number_format($precio_venta_soles, 2,'.',''). ' ($'.number_format($precio_venta_dolares, 2, '.', '').') ';
-      $dataproducto["precio_venta_soles"] = number_format($precio_venta_soles, 2,',', '');
-      $dataproducto["precio_venta_dolares"] = number_format($precio_venta_dolares, 2,',', '');
+      $dataproducto["precio_venta_soles"] = number_format($precio_venta_soles, 2,'.', '');
+      $dataproducto["precio_venta_dolares"] = number_format($precio_venta_dolares, 2,'.', '');
       $dataproducto["urlfbshared"] = base_url().'Web/DetalleProducto/?codigoProducto='.$codigoproducto;
       $dataproducto["descfacebook"] = 'S/. '.number_format($precio_venta_soles, 2,'.',''). ' ($'.number_format($precio_venta_dolares, 2, '.', '').') '.$caracteristicas_fb;
       $dataproducto["imgfbshared"] = $urlimgfacebook;
@@ -515,14 +515,12 @@ class Web extends CI_Controller {
     $imgFile = explode(".", $_FILES["file"]['name']);
     
     $Procedimiento = 'MvindaProcPedido';
-
     $Parametros = $txtnumerodocumento . '|' . $txtnombrescompletos . '|' . $txtapellidos . '|' . $txttelefono . '|' . $txtemail. '|' . $txtasunto;
     $Indice = 23;
     $Resultado = $this->general_model->ProcGeneral($Procedimiento, $Parametros, $Indice);
-
     $codresultado = $Resultado[0]["CodResultado"];
     $codauxiliarregistro = 0;
-    
+    //
     if($codresultado == 1){
       $codauxiliarregistro = $Resultado[0]["CodAuxiliar"];
       $nombreImagen = $codauxiliarregistro.'_CV_'.$txtnumerodocumento.'.'.$imgFile[1];
