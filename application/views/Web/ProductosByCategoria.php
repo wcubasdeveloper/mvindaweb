@@ -220,7 +220,7 @@
                                                     '<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 p-10">'+
                                                         '<div class="product-desc-wrap">'+
                                                             '<div class="product-decs">'+
-                                                                '<h2><a   href="'+ URL_BASE + '/Web/DetalleProducto/?codigoProducto=' + codigoProducto +'"  class="product-link"  style="font-size: 0.7em; font-weight: bold;" >'+ this.NomProducto +'</a></h2>'+
+                                                                '<h2><a   href="'+ URL_BASE + 'Web/DetalleProducto/?codigoProducto=' + codigoProducto +'"  class="product-link"  style="font-size: 0.7em; font-weight: bold;" >'+ this.NomProducto +'</a></h2>'+
                                                                 '<span class="inner-link" ><span style="font-size: 21px;" >'+ this.Marca +'</span></span>'+
                                                                 '<div class="product-intro-info">'+
                                                                     '<p>'+ (caracteristicas.length == 0 ? 'No se ha registrado ninguna descripción' :  caracteristicas ) +'</p>'+
@@ -303,7 +303,7 @@
                                                     '</div>' +
                                                     '<div class="product-decs">' +
                                                         '<span class="inner-link" ><span style="font-size: 20px;" >'+ this.Marca +'</span></span>' +
-                                                        '<h2><a href="'+ URL_BASE + '/Web/DetalleProducto/?codigoProducto=' + codigoProducto +'" style="font-weight: bold; color: #5d5d5d;" class="product-link">'+ this.NomProducto +'</a></h2>' +
+                                                        '<h2><a href="'+ URL_BASE + 'Web/DetalleProducto/?codigoProducto=' + codigoProducto +'" style="font-weight: bold; color: #5d5d5d;" class="product-link">'+ this.NomProducto +'</a></h2>' +
                                                         '<div class="pricing-meta">' +
                                                             '<ul>' +
                                                                 // '<li class="old-price">$23.90</li>' +

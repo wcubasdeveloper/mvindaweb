@@ -69,7 +69,7 @@
                 </div>
             </div>
             <div class="footer-center">
-                <div class="container">
+                <!-- <div class="container">
                     <div class="row">
                         <div class="col-md-4" >
                             <div class="title-newsletter">
@@ -95,7 +95,7 @@
                         </div>
 
                     </div>
-                </div>
+                </div> -->
             </div>
             <div class="footer-tags">
                 <div class="container">
