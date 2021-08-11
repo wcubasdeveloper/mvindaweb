@@ -476,7 +476,7 @@
             //
    
             $.post(URL_REGISTRA_PEDIDO, dataPedido, function (rpta) {
-                console.log("data productos", rpta);
+                
                 $('#btnRegistrarpedido').removeAttr('disabled');
                 $('#btnRegistrarpedido').css({
                     'opacity' : '1',

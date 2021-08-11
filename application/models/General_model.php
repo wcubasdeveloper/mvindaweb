@@ -123,6 +123,7 @@ class General_model extends CI_Model {
 		$Columna;
 		$FilaArray;
 
+
 		// Deserializa Detalle
 		if (!$datosPedidoDetalle == '') {
 			$ParametrosDetalleArray = explode('~', $datosPedidoDetalle);
@@ -146,7 +147,7 @@ class General_model extends CI_Model {
 				$marca = $FilaArray[5];
 				$descripcion = $FilaArray[6];
 				//
-				$ParametroDetalle = $codPedido . '|' . $idProducto. '|' . $preciodolares. '|' .$preciosoles.'|'. $cantidad .'|'. $marca . '|' .$descripcion;
+				$ParametroDetalle = $codPedido . '|' . $idProducto. '|' . $preciodolares. '|' .$preciosoles.'|'. $cantidad .'|'. $marca . '|' .$descripcion. '|' . $nombreProducto;
 				$Indice = 13;
 				$Query = 'CALL ' . 'MvindaProcPedido' . ' ("' . $ParametroDetalle . '", ' . $Indice . ')';
 				$InsertarPedidoDetalle = mysqli_query($link, $Query);

@@ -497,6 +497,7 @@ function verPedidoCompleto(elemento){
         $('#lblPersonaRecepciona').text(dirpersonarecepciona);
         $('#lblnrocontactodir').text(dircontactorecepciona);
 
+        console.log("respuesta->",respuesta);
         //seteando detalle
         var strHTMLtablapedido = '';
         $.each(respuesta, function(i){
